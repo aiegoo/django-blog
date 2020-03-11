@@ -1,0 +1,82 @@
+{% extends 'blog/base.html' %}
+{% load blog_tags oauth_tags comment_tags %}
+{% load humanize %}
+{% load highlight %}
+
+{% block head_title %}文章搜索：{{ query }}{% endblock %}
+{% block metas %}
+<meta name="description" content="Article search：{{ query }}，Full-text search function of the website, indexing according to the title and content of the article, to achieve the entire site search，django-haystack全文搜索库的使用">
+<meta name="keywords" content="{{ query }},research all,django-haystack">
+{% endblock %}
+
+{% block base_content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="description bg-white px-3 pt-3 pb-1 mb-1 mb-sm-2 mb-md-3">
+                <p class="float-right mb-0">共<span class="mx-2 text-info">{{ paginator.count }}</span>Articles</p>
+                <h1 class="f-17"><strong>Current search:{{ query }}</strong></h1>
+                <p class="f-16">The full-text search function of the website stores the title and content of the article on the entire website in terms of words, and then indexes each word, and the search function returns the articles in the title or content of the entire site.</p>
+            </div>
+            {% if query %}
+            <div class="summary-list">
+                {% for article in search_list %}
+                <div class="media mb-1 mb-sm-2 p-2 p-lg-3">
+                    <div class="align-self-center mr-2 mr-lg-3 w-25 modal-open">
+                        <a href="{{ article.object.get_absolute_url }}" target="_blank">
+                            <img class="w-100 article-img" src="{{ article.object.img_link }}"
+                                 alt="{{ article.object.title }}">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <div class="text-muted mb-2 f-12">
+                            {% get_user_avatar_tag article.object.author %}
+                            <span>{{ article.object.author }}</span>
+                            <span><i class="fa fa-calendar-times-o ml-2 mr-1"></i>
+                                    {{ article.object.create_date|naturaltime}}</span>
+                        </div>
+                        <h2 class="mt-0 font-weight-bold text-info f-17">
+                            <a href="{{ article.object.get_absolute_url }}" target="_blank">
+                                {% my_highlight article.object.title query %}</a>
+                        </h2>
+                        {% with article.object.body_to_markdown|safe as this_body %}
+                        <p class="d-none d-sm-block mb-2 f-15">{% highlight this_body with query max_length 130 %}</p>
+                        <p class="d-block d-sm-none mb-2 f-15">{% highlight this_body with query max_length 64 %}</p>
+                        {% endwith %}
+                        <div class="text-muted mb-0 f-12">
+                            <a class="cate" href="{{ article.object.category.get_absolute_url }}" title="查看当前分类下更多文章">
+                                <i class="fa fa-book mr-1"></i>{{ article.object.category }}</a>
+                            <span><i class="fa fa-eye ml-2 mr-1"></i>{{ article.object.views }}</span>
+                            <a href="{{ article.object.get_absolute_url }}#comment-block" target="_blank"
+                               title="查看文章评论">
+                                <i class="fa fa-comments ml-2 mr-1"></i>{% get_comment_count article.object %}</a>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="p-3 mt-3 bg-white"><p>No articles at this time!</p></div>
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% if is_paginated %}
+            <div class="text-center mt-2 mt-sm-1 mt-md-0 mb-3 f-16">
+                {% if page_obj.has_previous %}
+                <a class="text-success" href="?q={{ query }}&amp;page={{ page_obj.previous_page_number }}">Previous</a>
+                {% else %}
+                <span class="text-secondary" title="当前页已经是首页">上一页</span>
+                {% endif %}
+                <span class="mx-2">First&nbsp;{{ page_obj.number }}&nbsp;/&nbsp;{{ paginator.num_pages }}&nbsp;page</span>
+                {% if page_obj.has_next %}
+                <a class="text-success" href="?q={{ query }}&amp;page={{ page_obj.next_page_number }}">Next page</a>
+                {% else %}
+                <span class="text-secondary" title="当前页已经是末页">Next page</span>
+                {% endif %}
+            </div>
+            {% endif %}
+        </div>
+        <div class="col-lg-4">
+            {% include 'blog/tags/base_right.html' %}
+        </div>
+    </div>
+</div>
+{% endblock %}

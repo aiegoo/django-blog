@@ -1,0 +1,75 @@
+{% extends "tool/base_tool.html"%}
+{% load static%}
+
+{% block head_title%} Web page HTTP request header Request Headers online generation User-Agent_ online tool {% endblock%}
+{% block metas%}
+<meta name="description"
+      content="User-Agent generator, web request header generator, automatically generates Request Headers, online generation of various browser user, agent, such as IE, chrome, firefox, etc., the Python crawler headers parameters are automatically generated." >
+<meta name="keywords" content="Web request headers, Request Headers, User-Agent, online tools">
+{% endblock%}
+
+{% block tool_name%} User-Agent generator {% endblock%}
+{% block left_content%}
+<div class="card-body p-0">
+    <h3 class="card-title pl-2 title-info"> Tool description: </h3>
+    <ul>
+        <li> User-Agent is mostly used to set request headers in the crawler program, which is the simplest disguise for the crawler program. </li>
+        <li> This tool automatically generates User-Agent for different platforms, different systems and different browsers by setting different parameters </li>
+        <li> When the parameter is not selected, it means that no restriction is set, and the User-Agent is randomly generated. When the parameter is set, the User-Agent corresponding to the parameter is generated. </li>
+        <li> When there is a conflict between the set parameters, the appropriate User-Agent will not be generated, and an error message will be displayed </li>
+    </ul>
+</div>
+<div class="mb-3">
+
+    <form class="form-horizontal">
+        <h3 class="card-title pl-2 title-info"> Request header parameter selection </h3>
+        <div class="control-group">
+            <label class="control-label"> Device: </label>
+            <div class="controls" id="device_type">
+                <label class="checkbox inline"> <input class="ml-2 mr-3" name="device_type" type="checkbox"
+                                                      value="desktop"> desktop </label>
+                <label class="checkbox inline"> <input class="ml-2 mr-3" name="device_type" type="checkbox"
+                                                      value="tablet"> tablet </label>
+                <label class="checkbox inline"> <input class="ml-2 mr-3" name="device_type" type="checkbox"
+                                                      value="smartphone"> smartphone </label>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label"> System: </label>
+            <div class="controls" id="os">
+                <label class="checkbox inline"> <input class="ml-2 mr-3" name="os" type="checkbox"
+                                                      value="win"> win </label>
+                <label class="checkbox inline"> <input class="ml-2 mr-3" name="os" type="checkbox"
+                                                      value="linux"> linux </label>
+                <label class="checkbox inline"> <input class="ml-2 mr-3" name="os" type="checkbox"
+                                                      value="mac"> mac </label>
+                <label class="checkbox inline"> <input class="ml-2 mr-3" name="os" type="checkbox" value="android"> android </label>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label"> Browser: </label>
+            <div class="controls" id="navigator">
+                <label class="checkbox inline"> <input class="ml-2 mr-3" name="navigator" type="checkbox"
+                                                      value="ie"> ie </label>
+                <label class="checkbox inline"> <input class="ml-2 mr-3" name="navigator" type="checkbox" value="chrome"> chrome </label>
+                <label class="checkbox inline"> <input class="ml-2 mr-3" name="navigator" type="checkbox"
+                                                      value="firefox"> firefox </label>
+            </div>
+        </div>
+    </form>
+    <button type="submit" class="btn btn-info btn-sm rounded-0" id="get_useragent"> Generate User-Agent </button>
+</div>
+<div class="card mb-3 rounded-0">
+    <div class="card-header text-center text-info font-weight-bold py-2"> User-Agent </div>
+    <div class="card-body push-result text-center p-3"> Result display area </div>
+</div>
+{% endblock%}
+
+{% block end_f%}
+<script>
+$ ("#get_useragent"). click (function () {
+    useragent_api ("{{csrf_token}}", "{% url 'tool: useragent_api'%}")
+})
+</script>
+{% endblock%}

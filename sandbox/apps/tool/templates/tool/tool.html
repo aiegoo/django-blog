@@ -1,0 +1,112 @@
+{% extends "blog/base.html"%}
+{% load static%}
+{% load humanize%}
+{% load blog_tags%}
+
+{% block head_title%} Online tools to increase productivity {% endblock%}
+{% block metas%}
+<meta name="description" content="Online tools that provide webmaster tools including Baidu's active push tools, friend chain detection, regular expression tools, etc., to facilitate batch operations and improve work efficiency.">
+<meta name ="keywords" content="Online tools, SEO tools, webmaster tools, crawler tools">
+{% endblock%}
+
+
+{% block top-file%}
+<link href="{% static 'tool/css/tool.css'%}?v=20180107.08" rel="stylesheet">
+{% endblock%}
+
+{% block base_content%}
+<div class="container">
+    <div class="row tool-list">
+        <div class="col-md-6 col-lg-4 col-xl-3 px-lg-2 mb-3">
+            <div class="card">
+                <div class="card-header p-2 tool-header">
+                    <a href="{% url 'tool:baidu_push' %}">
+                        <img class="w-25 float-left mr-2" src="{% static 'blog/img/baidu-2.png'%}"
+                             alt="Baidu Active Push Tool">
+                        <h2 class="card-title"> Baidu Active Push Tool </h2>
+                    </a>
+                    <p class="mb-0"> [Webmaster Tools] </p>
+                </div>
+                <div class="card-body p-3 tool-des">
+                    <p class="card-text"> Call the active push interface provided by the Baidu webmaster to submit links in batches to improve the efficiency of website inclusion. Essential for old sites. </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3 px-lg-2 mb-3">
+            <div class="card">
+                <div class="card-header p-2 tool-header">
+                    <a href="{% url 'tool:baidu_push_site' %}">
+                        <img class="w-25 float-left mr-2" src="{% static 'blog/img/map.png'%}"
+                             alt="Sitemap Active Push">
+                        <h2 class="card-title"> Sitemap active push </h2>
+                    </a>
+                    <p class="mb-0"> [Webmaster Tools] </p>
+                </div>
+                <div class="card-body p-3 tool-des">
+                    <p class="card-text"> Grab all links on the Sitemap page, call Baidu's active push interface, and actively submit website links in batches. New sites are required. </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3 px-lg-2 mb-3">
+            <div class="card">
+                <div class="card-header p-2 tool-header">
+                    <a href="{% url 'tool:link_test' %}">
+                        <img class="w-25 float-left mr-2" src="{% static 'blog/img/link-2.png'%}"
+                             alt="Friend Link Detection Tool">
+                        <h2 class="card-title"> Friend Link Detection Tool </h2>
+                    </a>
+                    <p class="mb-0"> [Webmaster Tools] </p>
+                </div>
+                <div class="card-body p-3 tool-des">
+                    <p class="card-text"> Check the status of friendship links in batches, and check the effectiveness of the anti-chain of the friendship chain, so that the webmaster can delete and adjust the invalid friendship chain </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3 px-lg-2 mb-3">
+            <div class="card">
+                <div class="card-header p-2 tool-header">
+                    <a href="{% url 'tool:regex' %}">
+                        <img class="w-25 float-left mr-2" src="{% static 'blog/img/regex.png'%}"
+                             alt="online regular expressions">
+                        <h2 class="card-title"> Online regular expressions </h2>
+                    </a>
+                    <p class="mb-0"> [Developer tools] </p>
+                </div>
+                <div class="card-body p-3 tool-des">
+                    <p class="card-text"> Regular expression online tool, use regular expression rules to extract information, all language rules are common </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3 px-lg-2 mb-3">
+            <div class="card">
+                <div class="card-header p-2 tool-header">
+                    <a href="{% url 'tool:useragent' %}">
+                        <img class="w-25 float-left mr-2" src="{% static 'blog/img/chrome.png'%}"
+                             alt="User-Agent generator">
+                        <h2 class="card-title"> User-Agent generator </h2>
+                    </a>
+                    <p class="mb-0"> [Crawler tool] </p>
+                </div>
+                <div class="card-body p-3 tool-des">
+                    <p class="card-text"> Web page request header online generator, automatically generate request header User-Agent for various platforms and browsers </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3 px-lg-2 mb-3">
+            <div class="card">
+                <div class="card-header p-2 tool-header">
+                    <a href="{% url 'tool:html_characters' %}">
+                        <img class="w-25 float-left mr-2" src="{% static 'blog/img/html.png'%}"
+                             alt="HTML special character comparison table">
+                        <h2 class="card-title"> HTML special characters </h2>
+                    </a>
+                    <p class="mb-0"> [Developer tools] </p>
+                </div>
+                <div class="card-body p-3 tool-des">
+                    <p class="card-text"> HTML common character lookup table, HTML special character comparison table </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock%}

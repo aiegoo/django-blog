@@ -1,0 +1,76 @@
+{% extends "tool/base_tool.html"%}
+{% load static%}
+
+{% block head_title%} Friendly link detection tool, you can batch check whether the anti-links of friendly links are valid_Webmaster Tools {% endblock%}
+{% block metas%}
+<meta name="description" content="Friendlink detection tool is an efficient tool for checking friendship links. It can query the effectiveness of the antilinks of friendship links in real time, helping webmasters to know the status of the friendship chain in time to make adjustments.">
+<meta name="keywords" content="Friend link query, friendship chain detection, online tools, webmaster tools, anti-chain query">
+{% endblock%}
+
+{% block tool_name%} Friend Link Detection Tool {% endblock%}
+{% block left_content%}
+<div class="card-body p-0">
+    <h3 class="card-title pl-2 title-info"> Tool description: </h3>
+    <ul>
+        <li> This tool can check the status of friendship links in batches to see if the friend chains added by the webmaster still have backlinks to their own website, so it is easy for the webmaster to delete and adjust invalid friend chains.
+        <li> First fill in the following information (usually your own website address) into the form below, then fill in the links of the friend chain in batches, click "Start Detection" and wait for the results to return </li>
+        <li> Note: Friendship links may not be placed on the homepage of Youzhan, so be sure to fill in the link of the page where Youzhan places the YouChain, otherwise it will be judged that the YouChain has not been added.
+    </ul>
+</div>
+<div class="mb-3">
+    <div class="form-group">
+        <label> Information to be detected: </label>
+        <input type="text" class="form-control rounded-0" id="form-info"
+               placeholder="Example: href = & quot; https: //www.example.com""
+               required>
+        <small class="form-text text-muted"> Note: The detected information is generally the address provided to a friend site by yourself, that is, the address of your website </small>
+    </div>
+    <div class="form-group">
+        <label> Friendly link address: </label>
+        <textarea class="form-control rounded-0" id="form-links" rows="5" required
+                  example placeholder="
+http://www.example1.com/
+http://www.example2.com/friends/
+http://www.example3.com/youlian/ "> </textarea>
+        <small class="form-text text-muted"> Note: Friends of Youzhan may not all be placed on the homepage, and wherever you put them, you will be provided with a link </small>
+    </div>
+    <button type="submit" class="btn btn-info btn-sm rounded-0" id="start-push"> Start detection </button>
+</div>
+<div class="card mb-3 rounded-0">
+    <div class="card-header text-center text-info font-weight-bold py-2"> Detection results </div>
+    <div class="card-body push-result text-center p-0"> <div class="p-3"> Result display area </div> </div>
+</div>
+<h3 class="mb-3 pl-2 title-info"> Interpretation of test result parameters: </h3>
+<table class="table">
+    <thead class="thead-light">
+    <tr>
+        <th scope="col"> Status information </th>
+        <th scope="col"> Status description </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row"> true </th>
+        <td> Friendly chain exists and can detect information </td>
+    </tr>
+    <tr>
+        <th scope="row"> false </th>
+        <td> YouChain does not exist, no information was detected </td>
+    </tr>
+    <tr>
+        <th scope="row"> bad url </th>
+        <td> Youlink page cannot be opened and cannot be detected. The URL of Youlink may be wrong. </td>
+    </tr>
+    </tbody>
+</table>
+{% endblock%}
+
+{% block end_f%}
+<script>
+$ ('#start-push').click(function () {
+link_test_spider ("{{csrf_token}}", "{% url 'tool: link_test_api'%}");
+})
+
+
+</script>
+{% endblock%}

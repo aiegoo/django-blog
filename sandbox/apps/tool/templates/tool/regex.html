@@ -1,0 +1,43 @@
+{% extends "tool/base_tool.html"%}
+{% load static%}
+
+{% block head_title%} Regular expression online test, commonly used regular expression _ online tool {% endblock%}
+{% block metas%}
+<meta name="description" content="Regular expression online testing tool, using Regular Expression online, Python regular expression usage, provides common regular expression rules.">
+<meta name="keywords" content="regular expression, Python regular expression, Regular Expression, online tool">
+{% endblock%}
+
+{% block tool_name%} Online regular expressions {% endblock%}
+{% block left_content%}
+<div class="card-body p-0">
+    <h3 class="card-title pl-2 title-info"> Tool description: </h3>
+    <ul>
+        <li> Fill the information by filling in the form according to the rules of universal regular expressions </li>
+        <li> This tool is implemented using Python's regular expression library and supports Python regular expression syntax. </li>
+    </ul>
+</div>
+<div class="mb-3">
+    <div class="form-group">
+        <label> To be matched: </label>
+        <textarea class="form-control rounded-0" id="form-text" rows="8" required> </textarea>
+    </div>
+    <div class="form-group">
+        <label> Regular expression: </label>
+        <input type="url" class="form-control rounded-0" id="form-regex" placeholder="Example: [a-zA-z] +: // [\ S] *" required>
+    </div>
+    <button type="submit" class="btn btn-info btn-sm rounded-0" id="start-re"> Start matching </button>
+</div>
+<div class="card mb-3 rounded-0">
+    <div class="card-header text-center text-info font-weight-bold py-2"> Matching results </div>
+    <div class="card-body push-result text-center p-3"> Result display area </div>
+</div>
+{% endblock%}
+
+{% block end_f%}
+<script>
+$ ('#start-re'). click (function () {
+regex_api ("{{csrf_token}}", "{% url 'tool: regex_api'%}");
+})
+
+</script>
+{% endblock%}

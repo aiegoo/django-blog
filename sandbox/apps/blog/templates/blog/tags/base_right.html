@@ -1,0 +1,85 @@
+{% load cache %}
+{% load blog_tags static %}
+
+<!--Persoonlike ruimte-->
+{% cache 1800 'cache_baseright_html_tag' %}
+<div class="card border-0 rounded-0 px-3 mb-2 mb-md-3 d-none d-lg-block" id="home-card">
+    <div class="card-header bg-white px-0">
+        <strong><i class="fa fa-paper-plane mr-2 f-17"></i>Personal space</strong>
+    </div>
+    <div class="card-body px-0 pt-3 pb-1">
+        <div class="row text-center">
+            <div class="col">
+                <a href="https://github.com/aiegoo" target="_blank" title="Enter the blogger's Github to view the blog source code">
+                    <img style="max-width:40px" alt="Blogger's github" src="{% static 'blog/img/github.png' %}">
+                    <p class="mt-2">Github</p>
+                </a>
+            </div>
+            <div class="col">
+                <a href="{% url 'blog:timeline'%}" target="_blank" title="View website construction history">
+                    <img style="max-width:40px" alt="Website construction process" src="{% static 'blog/img/blog.png' %}">
+                    <p class="mt-2">Timeline</p>
+                </a>
+            </div>
+            <div class="col">
+                <a href="{% url 'rss'%}" target="_blank" title="Subscribe to Blog">
+                    <img style="max-width:40px" alt="Subscribe to Blog RSS" src="{% static 'blog/img/rss.png' %}">
+                    <p class="mt-2">RSS feed</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card border-0 rounded-0 px-3 mb-2 mb-md-3" id="category-card">
+    <div class="card-header bg-white px-0">
+        <strong><i class="fa fa-book mr-2 f-17"></i>Article Category</strong>
+    </div>
+    {% get_category_list as categories %}
+    <ul class="list-group list-group-flush f-16">
+        {% for each in categories %}
+        <li class="list-group-item d-flex justify-content-between align-items-center pr-2 py-2">
+            <a class="category-item" href="{{ each.get_absolute_url }}"
+                     title="View 【{{ each.name }}All articles in category">{{ each.name }}</a>
+            <span class="badge text-center" title="Under the current category{{ each.total_num }}Article">{{ each.total_num }}</span>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+<!--Tag Cloud-->
+<div class="card border-0 rounded-0 px-3 mb-2 mb-md-3" id="tag-card">
+    <div class="card-header bg-white px-0">
+        <strong><i class="fa fa-tags mr-2 f-17"></i>Tag Cloud</strong>
+    </div>
+    <div class="card-body px-0 py-3">
+        <div class="tag-cloud">
+            {% get_tag_list as tag_list %}
+            {% for tag in tag_list %}
+            <a href="{{ tag.get_absolute_url }}" class="tags f-16" id="tag-{{ forloop.counter }}"
+               title="【{{ tag.name }}] Under the label{{ tag.total_num }}Article">{{ tag.name }}</a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!--Friend-->
+<div class="d-none d-lg-block">
+    <div class="card border-0 rounded-0 px-3 mb-2 mb-md-3" id="friends-card">
+        <div class="card-header bg-white px-0">
+            <strong><i class="fa fa-link mr-2 f-17"></i>Links</strong>
+        </div>
+        <div class="card-body px-0 py-3">
+            <div class="tool-list">
+                {% get_friends as friends %}
+                {% for friend in friends %}
+                <div class="w-50 float-left text-center mb-2">
+                    <div class="mx-2">
+                        <a href="{{ friend.link }}" title="{{ friend.description }}" target="_blank">
+                            {{ friend.name }}</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endcache %}

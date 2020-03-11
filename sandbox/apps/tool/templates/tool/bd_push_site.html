@@ -1,0 +1,154 @@
+{% extends "tool/base_tool.html"%}
+{% load static%}
+
+{% block head_title%} Sitemap proactive push, Baidu proactive tool upgrade, speeding up site content crawling_Webmaster Tools {% endblock%}
+{% block metas%}
+<meta name="description" content="Sitemap active push is an upgraded version of Baidu’s active push tool. It can automatically submit links online in real time. First, use regular expressions to batch crawl all links on the sitemap page of the website, and then call the Baidu webmaster platform. Active push interface, batch push links, speed up crawling and Baidu indexing efficiency. ">
+<meta name="keywords" content="Baidu initiative push, webmaster tools, online tools, sitemap, automatic submission, Baidu indexing, real-time submission">
+{% endblock%}
+
+{% block tool_name%} Sitemap actively push {% endblock%}
+{% block left_content%}
+<div class="card-body p-0">
+    <h3 class="card-title pl-2 title-info"> Tool description: </h3>
+    <ul>
+        <li> This Sitemap active push tool is an upgraded version of Baidu's active push tool </li>
+        <li> The function of this tool is to grab all the links in the sitemap page of the website, and then use the official push interface provided by Baidu webmaster to actively push the links to Baidu for inclusion. For the role of Baidu's active push, please see
+            <a class="text-info" href="https://ziyuan.baidu.com/linksubmit/index" target="_blank"> Official instructions </a>
+        </li>
+        <li> First copy the "Interface Calling Address" provided by the Baidu webmaster to the form below, and then copy the address of your sitemap page to the corresponding form, and click the submit button to see the returned information </li>
+        <li> This tool is suitable for new sites or old sites with a small amount of Baidu content. It is recommended to use most of the old sites that have been indexed by Baidu.
+            <a class="text-info" href="{% url 'tool:baidu_push' %}"> Baidu's active push tool </a> Submit a new link in real time
+        </li>
+    </ul>
+</div>
+<div class="mb-3">
+    <div class="form-group">
+        <label> Interface call address: </label>
+        <input type="url" class="form-control rounded-0" id="form-url"
+               placeholder="Example: http://data.zz.baidu.com/urls?site=www.example.com&token=NpU0****tTQAlBV"
+               required>
+        <small class="form-text text-muted"> Note: Please fill in the interface calling address provided by the Baidu webmaster platform </small>
+    </div>
+    <div class="form-group">
+        <label> Sitemap address: </label>
+        <input type="url" class="form-control rounded-0" id="form-sitemap"
+               placeholder="example: http://www.example.com/sitemap.xml"
+               required>
+        <small class="form-text text-muted"> Note: The link to the canonical sitemap page should be included in the & lt; loc & gt;
+    </div>
+    <button type="submit" class="btn btn-info btn-sm rounded-0" id="start-push"> Start push </button>
+</div>
+<div class="card mb-3 rounded-0">
+    <div class="card-header text-center text-info font-weight-bold py-2"> Push results </div>
+    <div class="card-body push-result text-center py-3"> Result display area </div>
+</div>
+<h3 class="mb-3 pl-2 title-info"> Parameter interpretation of push results: </h3>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+           aria-selected="true"> Push successfully </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+           aria-selected="false"> Push failed </a>
+    </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <p class="my-1 text-muted"> The status code is 200 and the following fields may be returned: </p>
+        <table class="table">
+            <thead class="thead-light">
+            <tr>
+                <th scope="col"> field </th>
+                <th scope="col"> Is it necessary to pass </th>
+                <th scope="col"> Parameter types </th>
+                <th scope="col"> Description </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row"> remain </th>
+                <td> Yes </td>
+                <td> int </td>
+                <td> Number of pushable URLs remaining on the day </td>
+            </tr>
+            <tr>
+                <th scope="row"> success </th>
+                <td> Yes </td>
+                <td> int </td>
+                <td> Number of URLs successfully pushed </td>
+            </tr>
+            <tr>
+                <th scope="row"> not_same_site </th>
+                <td> No </td>
+                <td> array </td>
+                <td> A list of unprocessed URLs because they are not urls of this site </td>
+            </tr>
+            <tr>
+                <th scope="row"> not_valid </th>
+                <td> No </td>
+                <td> array </td>
+                <td> Illegal URL list </td>
+            </tr>
+            </tbody>
+        </table>
+        <p class="my-1 text-muted"> Example of successful return: </p>
+        <div class="codehilite">
+            <pre>
+{
+    & quot; remain & quot;: 4999998,
+    & quot; success & quot;: 2,
+    & quot; not_same_site & quot;: [],
+    & quot; not_valid & quot;: []
+}
+            </pre>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <p class="my-1 text-muted"> The status code is 4xx, and the returned fields are: </p>
+        <table class="table">
+            <thead class="thead-light">
+            <tr>
+                <th scope="col"> field </th>
+                <th scope="col"> Is it necessary to pass </th>
+                <th scope="col"> Parameter types </th>
+                <th scope="col"> Description </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row"> error </th>
+                <td> Yes </td>
+                <td> int </td>
+                <td> Error code, same as status code </td>
+            </tr>
+            <tr>
+                <th scope="row"> message </th>
+                <td> Yes </td>
+                <td> string </td>
+                <td> Error description </td>
+            </tr>
+            </tbody>
+        </table>
+        <p class="my-1 text-muted"> Example of failure return: </p>
+        <div class="codehilite">
+            <pre>
+{
+    & quot; error & quot;: 401,
+    & quot; message & quot;: & quot; token is not valid & quot;
+}
+            </pre>
+        </div>
+    </div>
+</div>
+{% endblock%}
+
+{% block end_f%}
+<script>
+$ ('#start-push'). click (function () {
+site_push_spider ("{{csrf_token}}", "{% url 'tool: baidu_push_api_site'%}");
+})
+
+</script>
+{% endblock%}
