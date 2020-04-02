@@ -18,7 +18,7 @@ location = lambda x: os.path.join(
 
 DEBUG = env.bool('DEBUG', default=True)
 
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['localhost', '127.0.0.1', '159.65.8.38', 'o-lora.com', 'latest.localhost'])
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['localhost', '127.0.0.1', '159.65.8.38', 'o-lora.com','lightup.co.kr','www.lightup.co.kr'])
 
 EMAIL_SUBJECT_PREFIX = '[Oscar sandbox] '
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -108,7 +108,7 @@ MEDIA_URL = '/media/'
 
 STATIC_URL = '/static/'
 STATIC_ROOT = location('public/static')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'storage.ForgivingManifestStaticFilesStorage'
 STATICFILES_DIRS = (
     location('static/'),
 )
@@ -573,4 +573,5 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 # django hosts
 ROOT_HOSTCONF = 'hosts'
 
-DEFAULT_HOST = 'latest'
+DEFAULT_HOST = 'www'
+PARENT_HOST = "lightup.co.kr"
