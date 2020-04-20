@@ -5,3 +5,4 @@ from apps.gateway import views
 urlpatterns = [
     url(r'^$', views.GatewayView.as_view(), name='gateway')
 ]
+app_name = 'gateway'

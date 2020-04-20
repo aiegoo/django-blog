@@ -1,13 +1,237 @@
-/**************** extend css start ****************/
-/**************** extend css start ****************/
-/**************** common css start ****************/
-@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800");
-/* line 3, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_common.scss */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 body {
-  font-family: "Poppins", sans-serif;
-  padding: 0;
-  margin: 0;
-  font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.929;
+    font-size: 16px;
+    margin-bottom: 0px;
+    color: #333;
+    font-weight: 400;
+    position: relative;
+}
+
+/* #scrollTracker {
+  display: block;
+  float: right;
+  z-index: 999;
+  position: sticky;
+  top: 100px;
+  right: 20px;
+  margin-top: 50px;
+  padding: 16px;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  opacity: 0.85;
+}
+
+#scrollTracker .nav-link {
+  color: #333;
+}
+
+#scrollTracker .nav-link.active {
+  color: #fff;
+  background-color: #0d1061;
+} */
+
+/* @media (max-width: 1500px) {
+  #scrollTracker {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 1300px) {
+  #scrollTracker {
+    display: none;
+    transition: display 0.5s linear;
+  }
+} */
+
+
+
+#scrollTracker {
+  width: 150px;
+  display: block;
+  float: right;
+  z-index: 999;
+  position: sticky;
+  top: 100px;
+  font-size: 0.75rem;
+  margin-top: 50px;
+  color: #333;
+}
+
+@media (max-width: 1500px) {
+  #scrollTracker {
+    width: 130px;
+    margin-right: -25px;
+    opacity: 0.8;
+    transition: all 0.5s ease-out;
+  }
+  .lesson-details {
+    white-space: nowrap;
+    transform: rotate(-35deg) translateY(-25px);
+  }
+}
+
+@media (max-width: 1300px) {
+  #scrollTracker {
+    display: none;
+    transition: all 0.5s ease-out;
+  }
+}
+
+#scrollTracker a {
+  color: #333;
+}
+
+.progress-items {
+  width: 100%;
+  position: relative;
+}
+
+.progress-item {
+  position: relative;
+  width: 100%;
+  display: block;
+  float: left;
+}
+.progress-item:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 0;
+  top: 50%;
+  left: 0;
+  z-index: -1;
+  -moz-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
+  -webkit-transition: all 200ms ease-out;
+  transition: all 200ms ease-out;
+}
+.progress-item:first-of-type .progress-tracker {
+  top: 35%;
+}
+.progress-item:first-of-type .lesson-number {
+  top: 0;
+}
+.progress-item:last-of-type .progress-tracker {
+  height: 35%;
+}
+.progress-item:last-of-type .lesson-number {
+  top: 100%;
+}
+.progress-item.active .lesson-number {
+  background-color: #0d1061;
+  color: white;
+  transition: all 200ms ease-out;
+}
+.progress-item:hover .progress-item:after {
+  top: 0%;
+  height: 100%;
+  background-color: #0d1061;
+}
+.progress-item:hover .lesson-details {
+  color: #777;
+}
+
+.lesson-number {
+  color: #333;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  background-color: white;
+  border: 5px solid #0d1061;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  top: 35%;
+  left: -22.5px;
+  text-align: center;
+  letter-spacing: 0px;
+  line-height: 1.8rem;
+}
+
+.lesson-icon {
+  /* width: 15%; */
+  width: 100px;
+  float: left;
+  padding: 2rem 0rem 2rem 2rem;
+}
+
+.lesson-details{
+  vertical-align: middle;
+  width: 85%;
+  float: left;
+  padding: 1.5rem 0 0.5rem 2rem;
+  -moz-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  -webkit-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+}
+
+.progress-tracker {
+  border-left: 5px solid #0d1061;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+}
+
+.lesson-icon {
+  padding-left: 2rem;
+}
+
+
+.language-selector {
+  margin-top: 6px;
+  font-size: 1.5rem;
+  color: #aaa;
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+.language-selector a {
+  margin: 0 15px;
+  color: #888;
+}
+
+.language-selector a:hover {
+  color: #fff;
+}
+
+.language-selector a.active {
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .language-selector {
+    margin-top: 3px;
+    margin-right: 10px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+ #aht {
+   display: none;
+ }
+ .footer-area {
+   padding-top: 75px !important;
+ }
+}
+
+@media (min-width: 1200px) {
+  .deep-img-hover {
+    position: absolute;
+    height: 25%;
+    width: 95%;
+    z-index: 999;
+    opacity: 0.1;
+    border-radius: 25px;
+  }
+  .deep-img-hover:hover {
+    background-color: #050733;
+    transition: all 250ms ease-in-out;
+  }
 }
 
 /* line 9, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_common.scss */
@@ -157,18 +381,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* line 85, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_common.scss */
-p {
-  font-family: "Poppins", sans-serif;
-  line-height: 1.929;
-  font-size: 16px;
-  margin-bottom: 0px;
-  color: #4c4c4c;
-  font-weight: 300;
-}
 
 /* line 94, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_common.scss */
 .Seed_spirit_replenish_cattle_one_moved_air_crea {
-  font-size: 14px;
+  font-size: 0.875rem;
   font-family: "Roboto";
   color: #777777;
   text-align: right;
@@ -182,7 +398,7 @@ p {
 
 /* line 110, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_common.scss */
 h2 {
-  font-size: 44px;
+  font-size: 2.75rem;
   line-height: 28px;
   color: #000;
   font-weight: 600;
@@ -192,7 +408,7 @@ h2 {
 @media (max-width: 575px) {
   /* line 110, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_common.scss */
   h2 {
-    font-size: 22px;
+    font-size: 1.375rem;
     line-height: 25px;
   }
 }
@@ -200,27 +416,27 @@ h2 {
 @media only screen and (min-width: 576px) and (max-width: 767px) {
   /* line 110, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_common.scss */
   h2 {
-    font-size: 24px;
+    font-size: 1.5rem;
     line-height: 25px;
   }
 }
 
 /* line 127, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_common.scss */
 h3 {
-  font-size: 24px;
+  font-size: 1.5rem;
   line-height: 25px;
 }
 
 @media (max-width: 575px) {
   /* line 127, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_common.scss */
   h3 {
-    font-size: 20px;
+    font-size: 1.25rem;
   }
 }
 
 /* line 137, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_common.scss */
 .blog_right_sidebar .widget_title {
-  font-size: 20px;
+  font-size: 1.25rem;
   margin-bottom: 40px;
   font-style: inherit;
   font-weight: 600;
@@ -229,7 +445,7 @@ h3 {
 
 /* line 144, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_common.scss */
 h5 {
-  font-size: 18px;
+  font-size: 1.125rem;
   line-height: 22px;
 }
 
@@ -270,7 +486,7 @@ a:focus, .button:focus, button:focus, .btn:focus {
   /* line 159, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_common.scss */
   .section_tittle {
     margin-bottom: 30px;
-    font-size: 30px;
+    font-size: 1.875rem;
   }
 }
 
@@ -291,7 +507,7 @@ a:focus, .button:focus, button:focus, .btn:focus {
   color: #010101;
   font-weight: 600;
   margin-bottom: 20px;
-  font-size: 48px;
+  font-size: 3rem;
   line-height: 39px;
   text-transform: capitalize;
 }
@@ -299,7 +515,7 @@ a:focus, .button:focus, button:focus, .btn:focus {
 @media (max-width: 575px) {
   /* line 177, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_common.scss */
   .section_tittle h2 {
-    font-size: 25px;
+    font-size: 1.563rem;
     line-height: 35px;
   }
 }
@@ -307,7 +523,7 @@ a:focus, .button:focus, button:focus, .btn:focus {
 @media only screen and (min-width: 576px) and (max-width: 767px) {
   /* line 177, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_common.scss */
   .section_tittle h2 {
-    font-size: 25px;
+    font-size: 1.563rem;
     line-height: 35px;
   }
 }
@@ -315,7 +531,7 @@ a:focus, .button:focus, button:focus, .btn:focus {
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   /* line 177, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_common.scss */
   .section_tittle h2 {
-    font-size: 30px;
+    font-size: 1.875rem;
     line-height: 40px;
   }
 }
@@ -323,7 +539,7 @@ a:focus, .button:focus, button:focus, .btn:focus {
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   /* line 177, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_common.scss */
   .section_tittle h2 {
-    font-size: 35px;
+    font-size: 2.188rem;
     line-height: 40px;
   }
 }
@@ -331,7 +547,7 @@ a:focus, .button:focus, button:focus, .btn:focus {
 /* line 201, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_common.scss */
 .section_tittle p {
   color: #4c4c4c;
-  font-size: 16px;
+  font-size: 1rem;
   margin-bottom: 7px;
 }
 
@@ -510,6 +726,7 @@ ul {
   .container {
     max-width: 1170px;
   }
+  
 }
 
 @media (max-width: 1200px) {
@@ -534,7 +751,7 @@ ul {
   background: #fff;
   padding: 0px 50px;
   color: #fff;
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 500;
   line-height: 50px;
   border-radius: 5px;
@@ -556,10 +773,10 @@ ul {
 .btn_1 {
   display: inline-block;
   color: #000;
-  font-size: 16px;
+  font-size: 1rem;
   text-transform: uppercase;
   font-weight: 600;
-  margin-top: 45px;
+  margin-top: 10px;
 }
 
 /* line 30, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_button.scss */
@@ -606,15 +823,17 @@ ul {
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   /* line 23, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_button.scss */
   .btn_1 {
-    margin-top: 20px;
+    margin-top: 0;
   }
+ 
+ 
 }
 
 /* line 59, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_button.scss */
 .btn_2 {
   display: inline-block;
   padding: 12.5px 45px;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 500;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -666,7 +885,7 @@ ul {
 .btn_3 {
   display: inline-block;
   padding: 12px 35px;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 400;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -710,7 +929,7 @@ ul {
   padding: 9.5px 28px;
   border-radius: 50px;
   background-color: #ff6426;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 400;
   color: #fff;
   -webkit-transition: 0.5s;
@@ -750,7 +969,7 @@ ul {
 /* line 155, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_button.scss */
 .btn_4 {
   display: inline-block;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: #fff;
   text-transform: capitalize;
   -webkit-transition: 0.5s;
@@ -834,7 +1053,7 @@ ul {
 
 /* line 56, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .single-blog a {
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 600;
 }
 
@@ -848,7 +1067,7 @@ ul {
   color: #666666;
   text-align: left;
   display: inline-block;
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 300;
 }
 
@@ -857,7 +1076,7 @@ ul {
   text-align: left;
   display: inline-block;
   float: left;
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 300;
   margin-right: 22px;
   position: relative;
@@ -904,14 +1123,14 @@ ul {
 
 /* line 116, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .single-blog .single-blog-content .meta-bottom p {
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 300;
 }
 
 /* line 121, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .single-blog .single-blog-content .meta-bottom i {
   color: #fdcb9e;
-  font-size: 13px;
+  font-size: 0.8125rem;
   margin-right: 7px;
 }
 
@@ -939,7 +1158,7 @@ ul {
   }
   /* line 149, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
   .single-blog h4 a {
-    font-size: 18px;
+    font-size: 1.125rem;
   }
 }
 
@@ -976,7 +1195,7 @@ ul {
 
 /* line 185, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .full_image.single-blog a {
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 600;
 }
 
@@ -1005,12 +1224,12 @@ ul {
 
 /* line 228, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .l_blog_item .l_blog_text .date a {
-  font-size: 12px;
+  font-size: 0.75rem;
 }
 
 /* line 234, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .l_blog_item .l_blog_text h4 {
-  font-size: 18px;
+  font-size: 1.125rem;
   border-bottom: 1px solid #eeeeee;
   margin-bottom: 0px;
   padding-bottom: 20px;
@@ -1094,7 +1313,7 @@ ul {
 
 /* line 323, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .causes_item .causes_text h4 {
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 600;
   margin-bottom: 15px;
   cursor: pointer;
@@ -1102,7 +1321,7 @@ ul {
 
 /* line 336, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .causes_item .causes_text p {
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 24px;
   font-weight: 300;
   margin-bottom: 0px;
@@ -1116,7 +1335,7 @@ ul {
   float: left;
   line-height: 50px;
   color: #fff;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 500;
 }
 
@@ -1124,7 +1343,7 @@ ul {
 .causes_item .causes_bottom a + a {
   border-color: #eeeeee;
   background: #fff;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 /* End Causes Area css
@@ -1164,7 +1383,7 @@ ul {
 
 /* line 403, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .single-recent-blog-post .date {
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 24px;
   font-weight: 400;
 }
@@ -1176,7 +1395,7 @@ ul {
 
 /* line 417, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .tags .tag_btn {
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 500;
   line-height: 20px;
   border: 1px solid #eeeeee;
@@ -1243,7 +1462,7 @@ ul {
 /* line 476, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .categories_post .categories_details h5 {
   margin-bottom: 0px;
-  font-size: 18px;
+  font-size: 1.125rem;
   line-height: 26px;
   text-transform: uppercase;
   color: #fff;
@@ -1253,7 +1472,7 @@ ul {
 /* line 494, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .categories_post .categories_details p {
   font-weight: 300;
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 26px;
   margin-bottom: 0px;
 }
@@ -1307,7 +1526,7 @@ ul {
 
 /* line 549, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .blog_details h2 {
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 600;
   margin-bottom: 8px;
 }
@@ -1315,7 +1534,7 @@ ul {
 @media (min-width: 768px) {
   /* line 549, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
   .blog_details h2 {
-    font-size: 24px;
+    font-size: 1.5rem;
     margin-bottom: 15px;
   }
 }
@@ -1323,7 +1542,7 @@ ul {
 /* line 563, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .blog-info-link li {
   float: left;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 /* line 567, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
@@ -1334,7 +1553,7 @@ ul {
 /* line 571, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .blog-info-link li i,
 .blog-info-link li span {
-  font-size: 13px;
+  font-size: 0.8125rem;
   margin-right: 5px;
 }
 
@@ -1386,7 +1605,7 @@ ul {
 
 /* line 615, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .blog_item_img .blog_item_date h3 {
-  font-size: 22px;
+  font-size: 1.375rem;
   font-weight: 600;
   color: #fff;
   margin-bottom: 0;
@@ -1396,13 +1615,13 @@ ul {
 @media (min-width: 768px) {
   /* line 615, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
   .blog_item_img .blog_item_date h3 {
-    font-size: 30px;
+    font-size: 1.875rem;
   }
 }
 
 /* line 627, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .blog_item_img .blog_item_date p {
-  font-size: 18px;
+  font-size: 1.125rem;
   margin-bottom: 0;
   color: #fff;
 }
@@ -1410,13 +1629,13 @@ ul {
 @media (min-width: 768px) {
   /* line 627, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
   .blog_item_img .blog_item_date p {
-    font-size: 18px;
+    font-size: 1.125rem;
   }
 }
 
 /* line 647, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .blog_right_sidebar .widget_title {
-  font-size: 20px;
+  font-size: 1.25rem;
   margin-bottom: 40px;
 }
 
@@ -1439,7 +1658,7 @@ ul {
 .blog_right_sidebar .search_widget .form-control {
   height: 50px;
   border-color: #f0e9ff;
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: #999999;
   padding-left: 20px;
   border-radius: 0;
@@ -1470,7 +1689,7 @@ ul {
 /* line 698, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .blog_right_sidebar .search_widget .input-group button i,
 .blog_right_sidebar .search_widget .input-group button span {
-  font-size: 14px;
+  font-size: 0.875rem;
   color: #999999;
 }
 
@@ -1478,7 +1697,7 @@ ul {
 .blog_right_sidebar .newsletter_widget .form-control {
   height: 50px;
   border-color: #f0e9ff;
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: #999999;
   padding-left: 20px;
   border-radius: 0;
@@ -1508,7 +1727,7 @@ ul {
 /* line 739, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .blog_right_sidebar .newsletter_widget .input-group button i,
 .blog_right_sidebar .newsletter_widget .input-group button span {
-  font-size: 14px;
+  font-size: 0.875rem;
   color: #999999;
 }
 
@@ -1526,7 +1745,7 @@ ul {
 
 /* line 761, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .blog_right_sidebar .post_category_widget .cat-list li a {
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 20px;
   color: #888888;
 }
@@ -1555,7 +1774,7 @@ ul {
 
 /* line 792, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .blog_right_sidebar .popular_post_widget .post_item .media-body h3 {
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 20px;
   margin-bottom: 6px;
   transition: all 0.3s linear;
@@ -1568,7 +1787,7 @@ ul {
 
 /* line 809, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .blog_right_sidebar .popular_post_widget .post_item .media-body p {
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 21px;
   margin-bottom: 0px;
 }
@@ -1593,7 +1812,7 @@ ul {
   margin-right: 3px;
   transition: all 0.3s ease 0s;
   color: #888888;
-  font-size: 13px;
+  font-size: 0.8125rem;
 }
 
 /* line 837, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
@@ -1633,7 +1852,7 @@ ul {
 
 /* line 980, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .blog-pagination .page-link {
-  font-size: 14px;
+  font-size: 0.875rem;
   position: relative;
   display: block;
   padding: 0;
@@ -1651,7 +1870,7 @@ ul {
 /* line 997, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .blog-pagination .page-link i,
 .blog-pagination .page-link span {
-  font-size: 13px;
+  font-size: 0.8125rem;
 }
 
 /* line 1009, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
@@ -1688,7 +1907,7 @@ ul {
 .single-post-area .social-links li a {
   color: #cccccc;
   padding: 7px;
-  font-size: 14px;
+  font-size: 0.875rem;
   transition: all 0.2s linear;
 }
 
@@ -1700,7 +1919,7 @@ ul {
 /* line 1069, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .single-post-area .blog_details p {
   margin-bottom: 20px;
-  font-size: 15px;
+  font-size: 0.9375rem;
 }
 
 /* line 1079, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
@@ -1742,7 +1961,7 @@ ul {
 
 /* line 1106, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .single-post-area .arrow .lnr {
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 600;
 }
 
@@ -1764,25 +1983,25 @@ ul {
 
 /* line 1126, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .single-post-area .navigation-top .like-info {
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 /* line 1129, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .single-post-area .navigation-top .like-info i,
 .single-post-area .navigation-top .like-info span {
-  font-size: 16px;
+  font-size: 1rem;
   margin-right: 5px;
 }
 
 /* line 1136, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .single-post-area .navigation-top .comment-count {
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 /* line 1139, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .single-post-area .navigation-top .comment-count i,
 .single-post-area .navigation-top .comment-count span {
-  font-size: 16px;
+  font-size: 1rem;
   margin-right: 5px;
 }
 
@@ -1800,7 +2019,7 @@ ul {
 /* line 1156, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .single-post-area .navigation-top .social-icons li i,
 .single-post-area .navigation-top .social-icons li span {
-  font-size: 14px;
+  font-size: 0.875rem;
   color: #999999;
 }
 
@@ -1848,12 +2067,12 @@ ul {
 /* line 1205, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .single-post-area .blog-author p {
   margin-bottom: 0;
-  font-size: 15px;
+  font-size: 0.9375rem;
 }
 
 /* line 1210, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .single-post-area .blog-author h4 {
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 /* line 1217, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
@@ -1870,7 +2089,7 @@ ul {
 
 /* line 1226, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .single-post-area .navigation-area h4 {
-  font-size: 18px;
+  font-size: 1.125rem;
   line-height: 25px;
 }
 
@@ -1976,12 +2195,12 @@ ul {
 /* line 1317, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .comments-area h4 {
   margin-bottom: 35px;
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 
 /* line 1324, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .comments-area h5 {
-  font-size: 16px;
+  font-size: 1rem;
   margin-bottom: 0px;
 }
 
@@ -2003,15 +2222,15 @@ ul {
 @media (max-width: 413px) {
   /* line 1346, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
   .comments-area .comment-list .single-comment h5 {
-    font-size: 12px;
+    font-size: 0.75rem;
   }
   /* line 1350, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
   .comments-area .comment-list .single-comment .date {
-    font-size: 11px;
+    font-size: 0.6875rem;
   }
   /* line 1354, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
   .comments-area .comment-list .single-comment .comment {
-    font-size: 10px;
+    font-size: 0.625rem;
   }
 }
 
@@ -2028,7 +2247,7 @@ ul {
 
 /* line 1370, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .comments-area .date {
-  font-size: 14px;
+  font-size: 0.875rem;
   color: #999999;
   margin-bottom: 0;
   margin-left: 20px;
@@ -2038,7 +2257,7 @@ ul {
 .comments-area .comment {
   margin-bottom: 10px;
   color: #777777;
-  font-size: 15px;
+  font-size: 0.9375rem;
 }
 
 /* line 1383, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
@@ -2046,7 +2265,7 @@ ul {
   background-color: transparent;
   color: #888888;
   padding: 5px 18px;
-  font-size: 14px;
+  font-size: 0.875rem;
   display: block;
   font-weight: 400;
 }
@@ -2067,7 +2286,7 @@ ul {
 /* line 1412, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .comment-form h4 {
   margin-bottom: 40px;
-  font-size: 18px;
+  font-size: 1.125rem;
   line-height: 22px;
 }
 
@@ -2102,7 +2321,7 @@ ul {
   border-radius: 5px;
   height: 48px;
   padding-left: 18px;
-  font-size: 13px;
+  font-size: 0.8125rem;
   background: transparent;
 }
 
@@ -2133,35 +2352,35 @@ ul {
 /* line 1466, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .comment-form ::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: #777;
 }
 
 /* line 1472, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .comment-form ::-moz-placeholder {
   /* Firefox 19+ */
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: #777;
 }
 
 /* line 1478, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .comment-form :-ms-input-placeholder {
   /* IE 10+ */
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: #777;
 }
 
 /* line 1484, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog.scss */
 .comment-form :-moz-placeholder {
   /* Firefox 18- */
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: #777;
 }
 
 /*============ End Blog Single Styles  =============*/
 /* line 4, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_single_blog.scss */
 .single_blog_post .desc a {
-  font-size: 16px;
+  font-size: 1rem;
   color: #232b2b !important;
 }
 
@@ -2174,7 +2393,7 @@ ul {
 
 /* line 14, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_single_blog.scss */
 .single_blog_post .single_blog .single_appartment_content p {
-  font-size: 12px;
+  font-size: 0.75rem;
   text-transform: uppercase;
   margin-bottom: 20px;
 }
@@ -2186,7 +2405,7 @@ ul {
 
 /* line 22, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_single_blog.scss */
 .single_blog_post .single_blog .single_appartment_content h4 {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 600;
   line-height: 1.481;
   margin-bottom: 16px;
@@ -2194,7 +2413,7 @@ ul {
 
 /* line 28, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_single_blog.scss */
 .single_blog_post .single_blog .single_appartment_content h5 {
-  font-size: 15px;
+  font-size: 0.9375rem;
   color: #8a8a8a;
   font-weight: 400;
 }
@@ -2226,9 +2445,9 @@ ul {
   width: 100%;
   z-index: 999;
   padding: 25px 0px;
-      transition: all 0.6s ease-in-out;
+      transition: all 0.2s ease-in-out;
 }
-
+.menu_fixed{padding: 10px 0px;}
 /* line 10, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_menu.scss */
 .main_menu #search_1 i {
   color: #fff;
@@ -2247,7 +2466,7 @@ ul {
   max-width: 1140px;
   z-index: 999;
   text-align: center;
-  background: #aaa;
+  background: #6c71e4;
   margin-top: 25px;
 }
 
@@ -2262,7 +2481,7 @@ ul {
   border: 0;
   color: #ffffff;
   font-weight: 400;
-  font-size: 15px;
+  font-size: 0.9375rem;
   padding: 0;
 }
 
@@ -2343,14 +2562,14 @@ ul {
 /* line 98, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_menu.scss */
 .main_menu .off-canven-menu {
   position: fixed;
-  background: #fff;
-  width: 400px;
+  background: #050733;
+  width: 675px;
   height: 100vh;
   z-index: 99;
   top: 0;
-  padding: 0px 60px;
+  padding: 0 0 0 100px;
   transition: 0.5s;
-  left: -400px;
+  left: -675px;
 }
 
 @media (max-width: 575px) {
@@ -2369,7 +2588,7 @@ ul {
 }
 
 /* line 120, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_menu.scss */
-.main_menu .off-canven-menu.active {
+.showToggle .main_menu .off-canven-menu {
   left: 0;
 }
 
@@ -2383,11 +2602,20 @@ ul {
 /* line 130, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_menu.scss */
 .main_menu .off-canven-menu a {
   color: #B6B3C1;
-  font-size: 20px;
-  display: inline-block;
-  padding-right: 20px;
+  font-size: 1.25rem;
+      display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  padding-right: 0;
+  -webkit-transition: color .6s ease-in-out;
+    transition: color .6s ease-in-out
 }
-
+.main_menu .off-canven-menu a .text {
+    -webkit-box-flex: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    margin-right: 40px
+}
 /* line 136, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_menu.scss */
 .main_menu .off-canven-menu a:hover {
   color: #ff7e00;
@@ -2408,18 +2636,19 @@ ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  text-align: center;
+  text-align: left;
 }
 
 /* line 153, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_menu.scss */
 .main_menu .off-canven-menu ul li a {
   text-transform: capitalize;
-  font-size: 20px;
+  font-size: 1.25rem;
   line-height: 1.8;
-  color: #100060;
+  color: #FFF;
   font-weight: 600;
   letter-spacing: -0.12px;
   margin: 10px 0px;
+  padding:0;
 }
 
 /* line 162, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_menu.scss */
@@ -2442,7 +2671,7 @@ ul {
   width: 65px;
   background-color: #272822;
   color: #fff;
-  font-size: 31px;
+  font-size: 1.938rem;
   border-radius: 50%;
   text-align: center;
   line-height: 63px;
@@ -2468,7 +2697,7 @@ ul {
   width: 100%;
   line-height: 40px;
   margin-top: -20px;
-  font-size: 25px;
+  font-size: 1.563rem;
   cursor: pointer;
   background-color: transparent;
   color: #000;
@@ -2482,7 +2711,7 @@ ul {
   width: 100%;
   line-height: 40px;
   margin-top: -20px;
-  font-size: 25px;
+  font-size: 1.563rem;
   cursor: pointer;
   background-color: transparent;
   color: #000;
@@ -2490,28 +2719,25 @@ ul {
 
 /* line 218, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_menu.scss */
 .menu_fixed {
-  position: fixed;
+  position: fixed !important;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #161f23;
-  box-shadow: 0px 2px 10px #FFF !important;
+  background-color: #050733;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 .menu_fixed h1{
 	
-	font-size: 25px;
+	font-size: 1.563rem;
 }
-.menu_fixed .logo{
-	width:140px;
-	    transition: all 0.5s ease-in-out;
-}
+
 
 /**************** banner part css start ****************/
 /* line 2, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_banner.scss */
 .banner_part {
   height: 890px;
   position: relative;
-  background-image: url(../img/banner.png);
+  background-image: url(/static/olora_frontend/img/banner-01.jpg);
   background-repeat: no-repeat;
   background-size: 100% auto;
   background-position: center;
@@ -2567,7 +2793,7 @@ ul {
 
 /* line 35, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_banner.scss */
 .banner_part .banner_text h5 {
-  font-size: 18px;
+  font-size: 1.125rem;
   text-transform: capitalize;
   font-weight: 400;
   font-family: "Poppins", sans-serif;
@@ -2587,7 +2813,7 @@ ul {
 
 /* line 52, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_banner.scss */
 .banner_part .banner_text h1 {
-  font-size: 50px;
+  font-size: 3.125rem;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   margin-bottom: 19px;
@@ -2598,7 +2824,7 @@ ul {
 @media (max-width: 575px) {
   /* line 52, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_banner.scss */
   .banner_part .banner_text h1 {
-    font-size: 26px;
+    font-size: 1.625rem;
     margin-bottom: 15px;
     line-height: 1.3;
   }
@@ -2607,7 +2833,7 @@ ul {
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   /* line 52, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_banner.scss */
   .banner_part .banner_text h1 {
-    font-size: 40px;
+    font-size: 2.5rem;
     margin-bottom: 15px;
     line-height: 1.4;
   }
@@ -2688,27 +2914,27 @@ ul {
 /*************** our speciality *****************/
 /* line 2, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_our_speciality.scss */
 .our_speciality {
-  margin-top: -98px;
+  margin-top:0;
   z-index: 99;
   position: absolute;
   left: 0;
   right: 0;
+  bottom:-135px
 }
 
 /* line 8, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_our_speciality.scss */
 .our_speciality .single_special_part {
-  background-color: #fff;
-  width: 33.33%;
-  float: left;
-  position: relative;
-  padding: 45px 50px;
-  border-left: 1px solid #d3d3d3;
+    background-color: #FFF;
+    width: 100%;
+    float: left;
+    position: relative;
+    padding: 45px 10px 20px;
+    min-height: 270px;
+    text-align: center;
 }
+#indexSlider .carousel-indicators li.active .single_special_part {background:#f2f2f2f}
 
 /* line 16, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_our_speciality.scss */
-.our_speciality .single_special_part:first-child {
-  border-left: 0px solid transparent;
-}
 
 @media (max-width: 575px) {
   /* line 8, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_our_speciality.scss */
@@ -2722,20 +2948,17 @@ ul {
 @media only screen and (min-width: 576px) and (max-width: 767px) {
   /* line 8, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_our_speciality.scss */
   .our_speciality .single_special_part {
-    width: 50%;
-    padding: 20px 15px 20px 35px;
+    width: 100%;
+    padding: 20px 10px 20px 10px;
     border-left: 0px solid transparent;
   }
+  .our_speciality .single_special_part .single_special_text h3{font-size:11px;}
+  span.iconsbanner {
+    display: block;
+    min-height: 64px;
+}
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  /* line 8, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_our_speciality.scss */
-  .our_speciality .single_special_part {
-    width: 50%;
-    padding: 20px 15px;
-    border-left: 0px solid transparent;
-  }
-}
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   /* line 8, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_our_speciality.scss */
@@ -2746,9 +2969,9 @@ ul {
 
 /* line 37, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_our_speciality.scss */
 .our_speciality .single_special_part img {
-  position: absolute;
-  left: 50px;
-  top: 50px;
+ margin-bottom: 24px;
+}
+.our_speciality .single_special_part p{color:#000}
 }
 
 @media (max-width: 575px) {
@@ -2788,13 +3011,13 @@ ul {
 
 /* line 62, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_our_speciality.scss */
 .our_speciality .single_special_part .single_special_text {
-  padding-left: 85px;
+  padding-left: 0;
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
   /* line 62, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_our_speciality.scss */
   .our_speciality .single_special_part .single_special_text {
-    padding-left: 25px;
+    padding-left: 0;
   }
 }
 
@@ -2814,13 +3037,14 @@ ul {
 
 /* line 76, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_our_speciality.scss */
 .our_speciality .single_special_part .single_special_text p {
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 /* line 79, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_our_speciality.scss */
 .our_speciality .single_special_part .single_special_text h3 {
   font-weight: 600;
-  margin-bottom: 24px;
+  margin-bottom: 12px; font-size:16px;
+  text-transform: uppercase;
 }
 
 @media (max-width: 575px) {
@@ -2846,7 +3070,7 @@ ul {
 
 /* line 1, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_about.scss */
 .about_part {
-  padding: 230px 0 50px;
+  padding: 220px 0 50px;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
@@ -2879,6 +3103,12 @@ ul {
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   /* line 6, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_about.scss */
+  .about_part {
+    background-position: center;
+    background-image: url(../img/future-making/ugujung-mobile.svg);
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+  }
   .about_part .about_part_text {
     padding-left: 0;
     padding-top: 0;
@@ -2897,28 +3127,28 @@ ul {
   color: #010101;
   font-weight: 600;
   margin-bottom: 27px;
-  font-size: 48px;
+  font-size: 3rem;
   line-height: 39px;
 }
 
 @media (max-width: 575px) {
   /* line 23, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_about.scss */
   .about_part .about_part_text h2 {
-    font-size: 30px;
+    font-size: 1.875rem;
   }
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
   /* line 23, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_about.scss */
   .about_part .about_part_text h2 {
-    font-size: 30px;
+    font-size: 1.875rem;
   }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   /* line 23, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_about.scss */
   .about_part .about_part_text h2 {
-    font-size: 30px;
+    font-size: 1.875rem;
   }
 }
 
@@ -2945,36 +3175,82 @@ ul {
 
 /* line 63, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_about.scss */
 .about_part .about_img img {
-  width: 100%;
-  position: absolute;
-  right: 0;
+  vertical-align: middle;
+  width: 85%;
+  position: relative;
+  top: -175px;
+  margin-bottom: -150px;
+}
+
+@media (max-width: 1300px) {
+  /* line 63, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_about.scss */
+  .about_part .about_img img {
+    width: 100%;
+    position: static;
+  }
+}
+
+@media (min-width: 1300px) and (max-width: 1500px){
+  /* line 63, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_about.scss */
+  .about_part .about_img img {
+    width: 100%;
+    position: relative;
+    top: -100px;
+  }
+}
+
+@media (min-width: 1500px) and (max-width: 1600px){
+  /* line 63, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_about.scss */
+  .about_part .about_img img {
+    width: 100%;
+    position: relative;
+    top: -125px;
+  }
+}
+
+@media (min-width: 1600px) and (max-width: 1700px){
+  /* line 63, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_about.scss */
+  .about_part .about_img img {
+    width: 100%;
+    position: relative;
+    top: -175px;
+  }
+}
+
+@media (min-width: 1700px) and (max-width: 1800px){
+  /* line 63, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_about.scss */
+  .about_part .about_img img {
+    width: 100%;
+    position: relative;
+    top: -200px;
+  }
 }
 
 @media (max-width: 575px) {
   /* line 63, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_about.scss */
   .about_part .about_img img {
-    position: relative;
+    position: static;
   }
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
   /* line 63, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_about.scss */
   .about_part .about_img img {
-    position: relative;
+    position: static;
   }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   /* line 63, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_about.scss */
   .about_part .about_img img {
-    position: relative;
+    position: static;
   }
 }
 
 /* line 1, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_service_part.scss */
 .service_part {
   padding: 445px 0px 130px;
-  background-image: url(../img/services_bg.png);
+  background-image: url(/static/olora_frontend/img/services_bg.png);
   background-position: center left;
   background-size: contain;
   background-repeat: no-repeat;
@@ -3132,7 +3408,7 @@ ul {
 /************** project part starrt**************/
 /* line 2, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_project_part.scss */
 .project_part {
-  background-image: url(../img/project/project_bg.png);
+  background-image: url(/static/olora_frontend/img/project/project_bg.png);
   background-position: center left;
   background-size: contain;
   background-repeat: no-repeat;
@@ -3246,7 +3522,7 @@ ul {
 /* line 86, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_project_part.scss */
 .project_part .single_project_text .admin_name {
   color: #000;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 600;
 }
 
@@ -3430,7 +3706,7 @@ ul {
 .blog_part {
   position: relative;
   padding: 0 0 140px;
-  background: url(../img/blog/blog_bg.png);
+  background: url(/static/olora_frontend/img/blog/blog_bg.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: content;
@@ -3540,7 +3816,7 @@ ul {
 
 /* line 72, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog_post.scss */
 .blog_part .single_project_text .single_project_tittle h4 {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 10px;
   display: inline-block;
@@ -3553,7 +3829,7 @@ ul {
 
 /* line 81, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog_post.scss */
 .blog_part .single_project_text .single_project_tittle p {
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 /* line 84, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_blog_post.scss */
@@ -3654,7 +3930,7 @@ ul {
 /* line 5, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_contact_us.scss */
 .contact_us .contact_us_iner {
   background-color: #ff7e00;
-  padding: 95px 0px;
+  padding: 95px 0px 50px;
 }
 
 @media (max-width: 575px) {
@@ -3686,14 +3962,14 @@ ul {
 /* line 25, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_contact_us.scss */
 .contact_us .contact_us_iner .contact_us_left_text h4 {
   display: inline-block;
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 27px;
 }
 
 /* line 31, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_contact_us.scss */
 .contact_us .contact_us_iner .contact_us_left_text span {
-  font-size: 14px;
+  font-size: 0.875rem;
   float: right;
 }
 
@@ -3725,20 +4001,20 @@ ul {
 
 /* line 52, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_contact_us.scss */
 .contact_us .contact_us_iner .contact_us_right_text h5 {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 600;
 }
 
 /* line 56, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_contact_us.scss */
 .contact_us .contact_us_iner .contact_us_right_text h2 {
-  font-size: 36px;
+  font-size: 2.25rem;
   margin-bottom: 34px;
 }
 
 @media (max-width: 575px) {
   /* line 56, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_contact_us.scss */
   .contact_us .contact_us_iner .contact_us_right_text h2 {
-    font-size: 25px;
+    font-size: 1.563rem;
     margin-bottom: 20px;
   }
 }
@@ -3746,7 +4022,7 @@ ul {
 @media only screen and (min-width: 576px) and (max-width: 767px) {
   /* line 56, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_contact_us.scss */
   .contact_us .contact_us_iner .contact_us_right_text h2 {
-    font-size: 25px;
+    font-size: 1.563rem;
     margin-bottom: 20px;
   }
 }
@@ -3754,7 +4030,7 @@ ul {
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   /* line 56, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_contact_us.scss */
   .contact_us .contact_us_iner .contact_us_right_text h2 {
-    font-size: 25px;
+    font-size: 1.563rem;
     margin-bottom: 20px;
   }
 }
@@ -3762,7 +4038,7 @@ ul {
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   /* line 56, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_contact_us.scss */
   .contact_us .contact_us_iner .contact_us_right_text h2 {
-    font-size: 25px;
+    font-size: 1.563rem;
     margin-bottom: 20px;
   }
 }
@@ -3850,7 +4126,7 @@ ul {
 
 /* line 7, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_home_tips.scss */
 .home_tips h1 {
-  font-size: 48px;
+  font-size: 3rem;
   font-weight: 600;
 }
 
@@ -3905,7 +4181,7 @@ ul {
 
 /* line 39, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_home_tips.scss */
 .home_tips .popup-youtube i {
-  font-size: 25px;
+  font-size: 1.563rem;
   margin-left: 6px;
 }
 
@@ -3934,28 +4210,32 @@ ul {
 /*************** single_page_special ********************/
 /* line 2, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_single_page_special.scss */
 .single_page_special {
-  margin-top: -180px;
+  padding-top: 130px;
 }
 
 /* line 4, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_single_page_special.scss */
 .single_page_special .single_page_special_item {
   background-color: #f5f5f5;
-  border: 25px solid #fff;
+  border: 0;
   -webkit-transition: 1s;
   transition: 1s;
+  margin-bottom: 60px;
+  box-shadow:0 0 5px #999;
 }
 
 /* line 8, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_single_page_special.scss */
 .single_page_special .single_page_special_item img {
-  max-width: 60px;
-  max-height: 60px;
+  max-width: 155px;
+  max-height: 85px;
   -webkit-transition: 1s;
   transition: 1s;
+  margin: auto;
 }
+.clientLogo{background:#fff; padding:0; border:1px dashed #d5d5d5; width: 190px;}
 
 /* line 13, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_single_page_special.scss */
 .single_page_special .single_page_special_item h3 {
-  margin: 36px 0px 18px 0;
+  margin: 36px 0px 5px 0;
   -webkit-transition: 1s;
   transition: 1s;
 }
@@ -3973,21 +4253,6 @@ ul {
   padding: 48px;
 }
 
-/* line 23, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_single_page_special.scss */
-.single_page_special .single_page_special_item .single_slide_item:hover {
-  background-color: #ff7e00;
-}
-
-/* line 25, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_single_page_special.scss */
-.single_page_special .single_page_special_item .single_slide_item:hover h3 {
-  color: #fff;
-}
-
-/* line 28, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_single_page_special.scss */
-.single_page_special .single_page_special_item .single_slide_item:hover p {
-  color: #fff;
-}
-
 /* line 34, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_single_page_special.scss */
 .single_page_special .owl-prev,
 .single_page_special .owl-next {
@@ -4000,7 +4265,7 @@ ul {
   color: #fff;
   position: absolute;
   right: 0;
-  top: -95px;
+  top: -60px;
   color: #000 !important;
   transition: all 1s;
 }
@@ -4074,7 +4339,7 @@ ul {
 .project_gallery h2 {
   text-transform: capitalize;
   font-weight: 800;
-  font-size: 48px;
+  font-size: 3rem;
   margin-bottom: 80px;
 }
 
@@ -4082,7 +4347,7 @@ ul {
   /* line 41, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_project_gallery.scss */
   .project_gallery h2 {
     margin-bottom: 40px;
-    font-size: 30px;
+    font-size: 1.875rem;
   }
 }
 
@@ -4090,7 +4355,7 @@ ul {
   /* line 41, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_project_gallery.scss */
   .project_gallery h2 {
     margin-bottom: 40px;
-    font-size: 30px;
+    font-size: 1.875rem;
   }
 }
 
@@ -4098,7 +4363,7 @@ ul {
   /* line 41, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_project_gallery.scss */
   .project_gallery h2 {
     margin-bottom: 40px;
-    font-size: 30px;
+    font-size: 1.875rem;
   }
 }
 
@@ -4106,7 +4371,7 @@ ul {
   /* line 41, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_project_gallery.scss */
   .project_gallery h2 {
     margin-bottom: 40px;
-    font-size: 30px;
+    font-size: 1.875rem;
   }
 }
 
@@ -4147,34 +4412,34 @@ ul {
 .project_details_text h2 {
   text-transform: capitalize;
   font-weight: 800;
-  font-size: 48px;
+  font-size: 3rem;
 }
 
 @media (max-width: 575px) {
   /* line 80, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_project_gallery.scss */
   .project_details_text h2 {
-    font-size: 25px;
+    font-size: 1.563rem;
   }
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
   /* line 80, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_project_gallery.scss */
   .project_details_text h2 {
-    font-size: 30px;
+    font-size: 1.875rem;
   }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   /* line 80, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_project_gallery.scss */
   .project_details_text h2 {
-    font-size: 30px;
+    font-size: 1.875rem;
   }
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   /* line 80, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_project_gallery.scss */
   .project_details_text h2 {
-    font-size: 30px;
+    font-size: 1.875rem;
   }
 }
 
@@ -4247,7 +4512,7 @@ ul {
 
 /* line 128, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_project_gallery.scss */
 .project_details_sidebar h4 {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 800;
   margin-bottom: 15px;
 }
@@ -4257,7 +4522,7 @@ ul {
   border-bottom: 1px solid #bdbdbd;
   padding: 25px 0;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 /* line 136, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_project_gallery.scss */
@@ -4287,14 +4552,14 @@ ul {
 @media (max-width: 575px) {
   /* line 2, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_copyright_part.scss */
   .copyright_part {
-    margin-top: 30px;
+    margin-top: 0;
   }
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
   /* line 2, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_copyright_part.scss */
   .copyright_part {
-    margin-top: 30px;
+    margin-top: 0;
   }
 }
 
@@ -4313,7 +4578,7 @@ ul {
 
 /* line 20, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_copyright_part.scss */
 .copyright_part a {
-  color: #ff7e00;
+  color: #c5b72c;
 }
 
 @media (max-width: 575px) {
@@ -4379,7 +4644,7 @@ ul {
 
 /* line 82, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_copyright_part.scss */
 .copyright_part span.ti-heart {
-  font-size: 12px;
+  font-size: 0.75rem;
   margin: 0px 2px;
 }
 
@@ -4397,14 +4662,14 @@ ul {
 /* line 9, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_contact.scss */
 .contact-info__icon i, .contact-info__icon span {
   color: #8f9195;
-  font-size: 27px;
+  font-size: 1.688rem;
 }
 
 /* line 17, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_contact.scss */
 .contact-info .media-body h3 {
-  font-size: 16px;
+  font-size: 1rem;
   margin-bottom: 0;
-  font-size: 16px;
+  font-size: 1rem;
   color: #2a2a2a;
 }
 
@@ -4422,14 +4687,14 @@ ul {
 /*=================== contact form start ====================*/
 /* line 38, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_contact.scss */
 .contact-title {
-  font-size: 27px;
+  font-size: 1.688rem;
   font-weight: 600;
   margin-bottom: 20px;
 }
 
 /* line 46, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_contact.scss */
 .form-contact label {
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 /* line 50, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_contact.scss */
@@ -4444,11 +4709,11 @@ ul {
 
 /* line 58, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_contact.scss */
 .form-contact .form-control {
-  border: 1px solid #f0e9ff;
+  border: 1px solid #d7d1e3;
   border-radius: 5px;
   height: 48px;
   padding-left: 18px;
-  font-size: 13px;
+  font-size: 0.8125rem;
   background: transparent;
 }
 
@@ -4460,8 +4725,8 @@ ul {
 
 /* line 71, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_contact.scss */
 .form-contact .form-control::placeholder {
-  font-weight: 300;
-  color: #999999;
+  font-weight: 400;
+  color: #333;
 }
 
 /* line 77, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_contact.scss */
@@ -4526,13 +4791,13 @@ ul {
 /* line 75, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_elements.scss */
 .sample-text-area {
   background: #fff;
-  padding: 100px 0 70px 0;
+  /*padding: 60px 0 70px 0;*/
 }
 
 /* line 80, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_elements.scss */
 .text-heading {
   margin-bottom: 30px;
-  font-size: 24px;
+  font-size: 1.5rem;
 }
 
 /* line 85, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_elements.scss */
@@ -4546,32 +4811,32 @@ del {
 
 /* line 93, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_elements.scss */
 h1 {
-  font-size: 36px;
+  font-size: 2.25rem;
 }
 
 /* line 97, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_elements.scss */
 h2 {
-  font-size: 30px;
+  font-size: 1.875rem;
 }
 
 /* line 101, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_elements.scss */
 h3 {
-  font-size: 24px;
+  font-size: 1.5rem;
 }
 
 /* line 105, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_elements.scss */
 h4 {
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 
 /* line 109, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_elements.scss */
 h5 {
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 /* line 113, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_elements.scss */
 h6 {
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 /* line 117, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_elements.scss */
@@ -4890,11 +5155,11 @@ h6 {
 
 /* line 347, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_elements.scss */
 .generic-blockquote {
-  padding: 30px 50px 30px 30px;
-  background: #f9f9ff;
-  border-left: 2px solid #ff7e00;
+    padding: 25px 50px 20px 30px;
+    background: #f9f9ff;
+    border-left: 2px solid #ff7e00;
+    margin-bottom: 25px;
 }
-
 /* line 353, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_elements.scss */
 .progress-table-wrap {
   overflow-x: scroll;
@@ -5033,12 +5298,13 @@ h6 {
   width: 14px;
   height: 14px;
 }
-
+.unordered-list{margin-bottom: 20px;}
 /* line 455, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_elements.scss */
 .unordered-list li {
   position: relative;
   padding-left: 30px;
   line-height: 1.82em !important;
+  font-size: 1rem;
 }
 
 /* line 459, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_elements.scss */
@@ -5455,7 +5721,7 @@ h6 {
 
 /* line 798, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_elements.scss */
 .primary-checkbox input:checked + label {
-  background: url(../img/elements/primary-check.png) no-repeat center center/cover;
+  background: url(/static/olora_frontend/img/elements/primary-check.png) no-repeat center center/cover;
   border: none;
 }
 
@@ -5497,7 +5763,7 @@ h6 {
 
 /* line 835, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_elements.scss */
 .confirm-checkbox input:checked + label {
-  background: url(../img/elements/success-check.png) no-repeat center center/cover;
+  background: url(/static/olora_frontend/img/elements/success-check.png) no-repeat center center/cover;
   border: none;
 }
 
@@ -5545,7 +5811,7 @@ h6 {
 
 /* line 876, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_elements.scss */
 .disabled-checkbox input:checked + label {
-  background: url(../img/elements/disabled-check.png) no-repeat center center/cover;
+  background: url(/static/olora_frontend/img/elements/disabled-check.png) no-repeat center center/cover;
   border: none;
 }
 
@@ -5587,7 +5853,7 @@ h6 {
 
 /* line 913, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_elements.scss */
 .primary-radio input:checked + label {
-  background: url(../img/elements/primary-radio.png) no-repeat center center/cover;
+  background: url(/static/olora_frontend/img/elements/primary-radio.png) no-repeat center center/cover;
   border: none;
 }
 
@@ -5629,7 +5895,7 @@ h6 {
 
 /* line 950, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_elements.scss */
 .confirm-radio input:checked + label {
-  background: url(../img/elements/success-radio.png) no-repeat center center/cover;
+  background: url(/static/olora_frontend/img/elements/success-radio.png) no-repeat center center/cover;
   border: none;
 }
 
@@ -5677,7 +5943,7 @@ h6 {
 
 /* line 991, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_elements.scss */
 .disabled-radio input:checked + label {
-  background: url(../img/elements/disabled-radio.png) no-repeat center center/cover;
+  background: url(/static/olora_frontend/img/elements/disabled-radio.png) no-repeat center center/cover;
   border: none;
 }
 
@@ -5715,7 +5981,7 @@ h6 {
   transition: all 0.3s ease 0s;
   line-height: 28px;
   min-height: 28px;
-  font-size: 12px;
+  font-size: 0.75rem;
   padding-left: 20px;
 }
 
@@ -5778,7 +6044,7 @@ h6 {
   transition: all 0.3s ease 0s;
   line-height: 28px;
   min-height: 28px;
-  font-size: 12px;
+  font-size: 0.75rem;
   padding-left: 45px;
 }
 
@@ -5812,8 +6078,11 @@ h6 {
 
 /* line 1089, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_elements.scss */
 .section-top-border {
-  padding: 50px 0;
-  border-top: 1px dotted #eee;
+  padding-top: 100px;
+  padding-bottom: 50px;
+  margin-top: 0;
+  margin-bottom: 0;
+  border-top: 1px solid #eee;
 }
 
 /* line 1093, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_elements.scss */
@@ -5833,8 +6102,8 @@ h6 {
 
 /* line 2, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_footer.scss */
 .footer-area {
-  background-color: #161f23;
-  padding: 130px 0px 0px;
+  background-color: #050733;
+
 }
 
 @media (max-width: 991px) {
@@ -5856,14 +6125,14 @@ h6 {
 
 /* line 15, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_footer.scss */
 .footer-area .social_icon a {
-  color: #898989;
+  color: #ff7e00;
   margin-right: 20px;
   transition: all .5s;
 }
 
 /* line 19, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_footer.scss */
 .footer-area .social_icon a:hover {
-  color: #ff7e00;
+  color: #FFF;
 }
 
 @media (max-width: 991px) {
@@ -5876,7 +6145,7 @@ h6 {
 /* line 29, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_footer.scss */
 .footer-area .single-footer-widget p {
   color: #999999;
-  font-size: 15px;
+  font-size: 0.9375rem;
   line-height: 1.8;
 }
 
@@ -5884,14 +6153,14 @@ h6 {
 .footer-area .single-footer-widget h4 {
   margin-bottom: 30px;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 1.5rem;
   color: #fff;
 }
 
 @media (max-width: 1024px) {
   /* line 35, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_footer.scss */
   .footer-area .single-footer-widget h4 {
-    font-size: 18px;
+    font-size: 1.125rem;
   }
 }
 
@@ -5904,7 +6173,7 @@ h6 {
 
 /* line 47, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_footer.scss */
 .footer-area .single-footer-widget h5 {
-  font-size: 16px;
+  font-size: 1rem;
   color: #fff;
 }
 
@@ -5918,7 +6187,7 @@ h6 {
   color: #999999;
   -webkit-transition: 0.5s;
   transition: 0.5s;
-  font-size: 15px;
+  font-size: 0.9375rem;
 }
 
 /* line 60, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_footer.scss */
@@ -5945,7 +6214,7 @@ h6 {
   background: transparent;
   padding-left: 20px;
   border-radius: 0;
-  font-size: 13px;
+  font-size: 0.8125rem;
   padding: 10px 20px;
   color: #999999;
   border: 0px solid transparent;
@@ -5969,7 +6238,7 @@ h6 {
   height: 50px;
   width: 50px;
   border: 0;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 400;
   font-family: "Poppins", sans-serif;
   position: relative;
@@ -6015,13 +6284,13 @@ h6 {
 /* line 127, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_footer.scss */
 .footer-area .contact_info p span {
   color: #fff;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 /* line 133, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_footer.scss */
 .footer-area .form-control {
   border-radius: 0px !important;
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: #999999;
   font-weight: 400;
   height: 48px;
@@ -6051,7 +6320,7 @@ h6 {
 
 /* line 157, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_footer.scss */
 .footer-area span.ti-heart {
-  font-size: 12px;
+  font-size: 0.75rem;
   margin: 0px 2px;
 }
 
@@ -6074,7 +6343,7 @@ h6 {
   }
   /* line 174, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_footer.scss */
   .footer-area .copyright_part_text p {
-    font-size: 13px;
+    font-size: 0.8125rem;
   }
 }
 
@@ -6086,7 +6355,7 @@ h6 {
   }
   /* line 181, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_footer.scss */
   .footer-area .copyright_part_text p {
-    font-size: 13px;
+    font-size: 0.8125rem;
   }
 }
 
@@ -6139,14 +6408,14 @@ h6 {
 
 /* line 220, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_footer.scss */
 .footer-area p.footer-text {
-  border-top: 1px solid #3c3c3c;
+  border-top: 1px solid #0c0f63;
   padding-top: 25px;
 }
 
 /************* breadcrumb css start *****************/
 /* line 2, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_breadcrumb.scss */
 .breadcrumb_bg {
-  background-image: url("../img/breadcrumb.png");
+  background-image: url(/static/olora_frontend/img/breadcrumb.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -6185,27 +6454,27 @@ h6 {
 @media (max-width: 575px) {
   /* line 17, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_breadcrumb.scss */
   .breadcrumb .breadcrumb_iner .breadcrumb_iner_item h2 {
-    font-size: 35px;
+    font-size: 2.188rem;
   }
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
   /* line 17, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_breadcrumb.scss */
   .breadcrumb .breadcrumb_iner .breadcrumb_iner_item h2 {
-    font-size: 35px;
+    font-size: 2.188rem;
   }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   /* line 17, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_breadcrumb.scss */
   .breadcrumb .breadcrumb_iner .breadcrumb_iner_item h2 {
-    font-size: 40px;
+    font-size: 2.5rem;
   }
 }
 
 /* line 39, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_breadcrumb.scss */
 .breadcrumb .breadcrumb_iner .breadcrumb_iner_item p {
-  font-size: 15px;
+  font-size: 0.9375rem;
   color: #fff;
   text-transform: capitalize;
 }
@@ -6213,7 +6482,7 @@ h6 {
 /* line 45, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_breadcrumb.scss */
 .breadcrumb .breadcrumb_iner .breadcrumb_iner_item span {
   margin: 0px 5px;
-  font-size: 12px;
+  font-size: 0.75rem;
 }
 
 /* line 54, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_breadcrumb.scss */
@@ -6222,3 +6491,889 @@ h6 {
 }
 
 /*# sourceMappingURL=style.css.map */
+/*date 4/4*/
+.toggelContainer {
+    position: fixed;
+    background: #05073c;
+    top: 0;
+    height: 65px;
+    width: 65px;
+    text-align: center;
+    padding-top: 20px;
+	left:0; transition:.5s;
+	z-index:40;
+}
+.showToggle .toggelContainer{left:675px; transition:.5s; height:100%;}
+.search_icon .btn-primary {
+    background-color: #c5b72c;
+    border: 1px solid #b9ab22;
+    border-radius: 40px;
+    box-shadow: 0 0 0 #000000;
+    color: #000;
+    height: 40px;
+    letter-spacing: 1px;
+    outline: 1px none;
+    padding: 0 45px;
+	font-weight:700;
+    text-transform: uppercase;
+}
+.search_icon {
+    margin-top: 8px;
+}
+
+
+@media only screen and (max-width: 768px){
+  .search_icon {
+    display: none;
+}
+}
+
+
+/*portfolio css*/
+.portfolioHight{
+height: 250px;
+width:100%;
+
+}
+
+
+.portfolioAccordion {
+  margin: 0;
+  min-height: 100vh;
+  background-size: 16px 16px;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  
+}
+
+.portfolioAccin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5vmin;
+  overflow: hidden;
+  transform: skew(0);
+  
+}
+.portfolioAccin .portfolioimgBlock {
+  flex: 1;
+  transition: all 1s ease-in-out;
+  height: 90vmin;
+  position: relative;
+      background: #d5d5d5;
+    padding: 5px 3px;
+}
+.portfolioAccin .portfolioimgBlock .portfolioTitle {
+  color: black;
+  background: rgba(238, 197, 32, 0.75);
+  padding: 0 15px;
+  transform: rotate(-90deg);
+  transform-origin: 0% 0%;
+  transition: all 0.5s ease-in-out;
+  min-width: 100%;
+  text-align: left;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 1.625rem;
+  white-space: nowrap;
+}
+.portfolioAccin .portfolioimgBlock.active {
+  flex-grow: 5;
+}
+.portfolioAccin .portfolioimgBlock.active img {
+  filter: grayscale(0);
+}
+.portfolioAccin .portfolioimgBlock.active .portfolioTitle {
+  text-align: left;
+  
+  color: black;
+  transform: rotate(0deg) skew(0);
+  white-space: pre-wrap;
+  
+}
+.portfolioAccin .portfolioimgBlock img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 1s ease-in-out;
+  filter: grayscale(100%);
+}
+.portfolioAccin .portfolioimgBlock:not(:nth-child(5)) {
+  margin-right: 0;
+}
+.portfolioAccin .portfolioimgBlock:nth-child(1) {
+  padding-left:6px;
+}
+.portfolioAccin .portfolioimgBlock:nth-child(9) {
+  padding-right:6px;
+}
+.contactWrap{padding:0; border:0; 
+    margin-bottom: -8px;}
+ul.listView  {list-style-type: none;margin: 0;padding: 0;}
+.listView li {background: url(/static/images/bullet.png) no-repeat scroll 0 18px; font-size: 1rem;line-height: 26px; padding: 6px 0 0 30px;position: relative;}
+.listView li:before{content: '';background: #f68b1f;height: 3px;width: 12px;position: absolute;top: 18px;left: 0;border-radius: 15px;}
+.borderBottom{border-bottom: 1px solid #0c0f63;
+    padding-bottom: 15px;}
+.dropdown-menu.show{background-color: #050733; padding: 10px 30px;}
+.main_menu .off-canven-menu ul li a.dropdown-item{font-size:16px;}
+.single-defination {
+    background: #FFF;
+    padding: 75px 20px 40px;
+    text-align: justify;
+	margin-bottom:30px;
+	min-height:445px;
+    border: 1px solid #c9c9c9;
+    text-align: center;
+}
+.single-defination h4{margin-bottom:20px;}
+.single-defination p {
+    text-align: justify;
+}
+
+.iotSection {
+            background-color:#fff;
+            margin: 0px;
+            height: 100%;
+            overflow: hidden;
+        }
+
+
+
+#indexSlider .carousel-indicators li{width:210px; height:285px; text-indent:unset; margin:0; opacity:1; border-bottom:1px solid #d5d5d5; border-top:4px solid #d5d5d5; border-left:1px solid #d5d5d5; position: relative;}
+#indexSlider .carousel-indicators li:last-child .single_special_part{border-right:1px solid #d5d5d5;}
+#indexSlider .carousel-indicators li.active{ border-top:4px solid #f68b1f }
+#indexSlider .carousel-indicators li.active:before {
+    content: '';
+    display: inline-block;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #f68b1f;
+    position: absolute;
+    left: 50%;
+    margin-left: -8px;
+    top:0;
+	z-index: 11111;
+    transition: all 0.3s ease 0ms;
+    -webkit-transition: all 0.3s ease 0ms;
+}
+ 
+#indexSlider .carousel-item .heading-box h2{ width:100%; color: red; }
+#indexSlider .carousel-item h2, #indexSlider .carousel-item p{color:#fff; margin-bottom:10px;}
+.carousel-item img{width:100%;}
+#indexSlider .text-box {
+	position: absolute;
+	top: 50%;
+	left: 15%;
+	right: 15%;
+	color: #000;
+	transform: translateY(-50%);
+}
+
+#indexSlider .text-box img{width:auto}
+.text-box a{color:#FFF; font-weight:normal}
+.width5#indexSlider 0 li{width:50%; float:left}
+.deepLearning, .sensorBanner{position:relative; z-index:2; margin-top:50px;}
+.deepLearning:after, .sensorBanner:after{width:100%; height:100%; display:block; content:""; background:#b7daf3; position:absolute; bottom:-20px; left:20px; z-index:-1}
+.marT50{margin-top:50px}
+.sensorBanner{margin-top:10px; margin-bottom: 20px;}
+.sensorBanner:after{ background:#c4ecee}
+.solutionImg:after{ background:#b4a9e4}
+.ioTimg:after{background:#c0c6d0}
+.heading{position:relative;}
+.heading:after{    background: #f68b1f none repeat scroll 0 0;
+    display: block;
+    height: 4px;
+    width: 30px;
+    position: absolute;
+    left: 0;
+    margin-top: 10px; content:""; border-radius:5px;}
+	
+.heading.text-center:after {
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin: auto;
+    margin-top: 10px;
+}
+
+ .line {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-transform: translate3d(10%, 0, 0);
+    transform: translate3d(10%, 0, 0);
+    -webkit-transition: transform .5s ease-out;
+    -webkit-transition: -webkit-transform .5s ease-out;
+    transition: -webkit-transform .5s ease-out;
+    transition: transform .5s ease-out;
+    transition: transform .5s ease-out, -webkit-transform .5s ease-out;
+    -webkit-transition-delay: .5s;
+    transition-delay: .5s
+}
+
+.line:before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1px solid #2bc8f9;
+    opacity: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    -webkit-transition: opacity .5s ease-in-out;
+    transition: opacity .5s ease-in-out;
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s
+}
+
+.line:after {
+    content: "";
+    height: 1px;
+    width: 100%;
+    opacity: 0;
+    background-color: hsla(0, 0%, 100%, .8);
+    -webkit-transition: opacity .5s ease-in-out;
+    transition: opacity .5s ease-in-out;
+    -webkit-transition-delay: .5s;
+    transition-delay: .5s
+}
+
+.canven-menu-iner a.active .line,
+.canven-menu-iner a:hover .line{
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0)
+}
+
+.canven-menu-iner a.active .line:after,
+.canven-menu-iner a.active .line:before {
+    opacity: 1
+}
+
+.canven-menu-iner a:hover {
+    color: #fff
+}
+
+.canven-menu-iner a:hover .line {
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s
+}
+
+.canven-menu-iner a:hover .line:before {
+    -webkit-transition-delay: .3s;
+    transition-delay: .3s
+}
+
+.canven-menu-iner a:hover .line:after {
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s
+}
+.dropdown-toggle::after{position: absolute;
+    left: 50px;
+    top: 26px;}
+.dropdown-item:focus, .dropdown-item:hover {background:none}
+.single-defination .imgHolder {
+    position:relative;
+    z-index: 1;
+    display: block;
+	margin:0 auto 42px; text-align:center}
+.single-defination .imgHolder:after {
+    left: 0; 
+	right:0;
+	margin:auto;
+    top: -27px;
+    position: absolute;
+    content: "";
+    animation: 10s linear 0s infinite running spin;
+    -webkit-animation: 10s linear 0s infinite running spin;
+    background: url(/static/olora_frontend/img/services/service-circle-bg.png) no-repeat center center;
+    width: 100px;
+    height: 100px;
+    z-index: -1;
+    background-size: 100px;
+}
+span.iconsbanner {
+    display: block;
+    min-height: 95px;
+}
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+.heading {
+  font-family: 'Open Sans', sans-serif;
+  color: #000;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 3.125rem;
+  font-weight: 800;
+  margin-bottom:60px;
+  line-height: 1;
+ /* text-shadow: #EDEDED 3px 2px 0;*/
+ 
+}
+#indexSlider{border-bottom:1px solid #ddd}
+.testislider {
+	width: 590px;
+	margin: 40px auto 40px;
+	padding-bottom: 40px;
+}
+.testislider .carousel-indicators{right:inherit; text-align:left; margin-left:0}
+.testislider .item {
+	color: #999;
+	font-size: 0.875rem;
+    text-align: left;
+	overflow: hidden;
+    min-height: 340px;
+}
+.testislider .item a {
+	color: #eb7245;
+}
+.testislider .img-box {
+	width: 145px;
+	height: 145px;
+	margin: 0 auto;
+	border-radius: 50%;
+}
+.testislider .img-box img {
+	width: 100%;
+	height: 100%;
+	display: block;
+	border-radius: 50%;
+}
+.testislider .testimonial {	
+	padding: 30px 0 10px;
+}
+.testislider .carousel .overview {	
+	text-align: center;
+	padding-bottom: 5px;
+}
+.testislider .overview b {
+	color: #333;
+	font-size: 0.9375rem;
+	text-transform: uppercase;
+	display: block;	
+	padding-bottom: 5px;
+}
+.testislider  .star-rating i {
+	font-size: 1.125rem;
+	color: #ffdc12;
+}
+.testislider .carousel-control {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+    background: none;
+    text-shadow: none;
+	color:#000;
+	top: -50px;
+}
+.testislider  .carousel-control i {
+	font-size: 1.25rem;
+	margin-right: 2px;
+}
+.testislider .carousel-control.left {
+	left: auto;
+	right: 75px;
+}
+
+.testislider .carousel-control.right i {
+	margin-right: -2px;
+}
+.testislider .carousel .carousel-indicators {
+	bottom: 15px;
+	display:block
+}
+.testislider .carousel-indicators li, .testislider .carousel-indicators li.active {
+	width: 16%;
+	height: 7px;
+	margin: 1px 5px;
+	border:0;
+}
+.testislider .carousel-indicators li {	
+	background: #e2e2e2;
+	border-color: transparent;
+	float:left
+}
+.testislider  .carousel-indicators li.active {
+	border: none;
+	background: #ff7e00;		
+}
+.single_page_special .single_page_special_item p{margin-bottom:10px;}
+#clients  .single_page_special_item h3{ font-size:18px;}
+#clients  .single_page_special_item  p{margin-bottom: 10px;
+color: #969494;}
+.about_part_text p, #solution p{text-align:justify;}
+.deepLearningprocess {
+    position: relative;
+    /* overflow:hidden; */
+	text-align:center;
+	margin-bottom:90px;
+	
+}
+.animationSlide{opacity: 0; text-align:center}
+.locationBlock{margin-top:50px;}
+.deepLearningprocess .arrowVertical{position:absolute;}
+.arrowWrapbottom{background:url(../img/deep-learning/bottom-arrow.png); background-size:cover;}
+.arrowBottom, .arrowTop {
+    left: -20px;
+    background: url(../img/deep-learning/bottom-arrow.png);
+    background-size: cover;
+    position: absolute;
+    bottom:-10px;
+    background-position: 100% 100%;
+    width: 600px;
+    height: 251px;
+  opacity: 0;
+}
+.arrowVertical{position:absolute; left:80px; height:0; bottom:0; width:35px; opacity:1;  overflow:hidden}
+.arrowTop{top:10px; opacity:0; left: 0px;}
+.animationSlide img{width:420px;}
+
+.locationBlock{
+-webkit-animation: load 3s infinite 4s; 
+  animation: load 3s infinite 4s;}
+  
+.rowData{-webkit-animation: load 4s infinite 4s;
+  animation: load 4s infinite 5s; margin-top:50px;}
+  
+.arrowBottom {	-webkit-animation: load 8s infinite 8s;
+  animation: load 8s infinite 8s;}
+  
+.dataAcquisition {-webkit-animation: load 12s infinite 12s;
+  animation: load 12s infinite 12s;}
+  
+.arrowTop{-webkit-animation: load 15s infinite 15s;
+  animation: load 15s infinite 15s;}
+   
+.arrowVertical{-webkit-animation:arrowV 17s infinite 17s;
+  animation:arrowV 17s infinite 17s;} 
+
+@keyframes load {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes arrowV {
+  0% {
+    height:100px
+  }
+  100% {
+    height:530px
+  }
+}
+.desktopLink{display:none; color:#FFF; padding:5px 0}
+.single_slide_item:hover {
+    background: #ff7e00;
+}
+.single_page_special .single_page_special_item .single_slide_item{min-height: 335px;}
+#clients .single_page_special_item .single_slide_item:hover p{color:#FFF}
+
+/*index banner*/
+.productSlider  img{width:auto;}
+
+.useTitle, .productTitle{
+    font-size: 1.125rem;
+    color: #000;
+    border-bottom: 1px solid #D7d7d7;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+}
+.productWrap {
+    margin-top: 10px;
+}
+.useTitle span, .productTitle span{color:#ff7e00}
+.productOut{margin-bottom:30px;}
+.productTitle{font-size:24px;}
+.productSpecification p{color:#000000;}
+
+/*New Portfolio*/
+.porfolioOut  .Portfolio {
+    position: relative;
+    margin: 10px;
+    float: left;
+    width: 100%;
+    max-width: 250px;
+    transition-duration: 0.4s;
+    animation: winanim 0.5s ;
+    -webkit-backface-visibility:visible;
+    backface-visibility:visible;
+ 
+}
+
+.porfolioOut .desc{display:none}
+.porfolioOut  .Portfolio:hover .desc{display:block}
+.porfolioOut  .Portfolio:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+}
+
+.porfolioOut .Portfolio img {
+    width: 100%;
+    height: auto;
+	border:2px solid #d5d5d5;
+	padding:2px;
+	
+}
+
+.porfolioOut  .desc {
+ position: absolute;
+    padding: 30px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.porfolioOut  .nav {
+  width: 100%;
+  justify-content: space-around;
+}
+
+.porfolioOut  .nav li {
+  width: 20%;
+  text-align: center;
+}
+@media only screen and (max-width: 768px){
+  .porfolioOut  .nav li {
+    width: 90%;
+  }
+}
+
+.porfolioOut  .nav li a { 
+  width: 100%;
+  font-size:16px; 
+  color:#000; 
+  background: #FFF;
+  border:1px solid #d5d5d5;
+  transition-duration: 0.4s;
+}
+
+.porfolioOut  .nav a:hover { 
+    background:#DDD; 
+}
+.porfolioOut .nav .active { 
+    background-color:#0d1061  !important;
+	border:1px solid #0d1061 ;
+    color:#fff;
+}
+
+@keyframes winanim {
+    0%{opacity:0;transform:scale3d(.3,.3,.3)}
+    50%{opacity:1}
+    
+}
+
+
+.imghvr-shutter-out-diag-1:before {
+    top: 50%;
+    bottom: 50%;
+    left: -35%;
+    right: -35%;
+    transform: rotate(45deg)
+}
+
+.imghvr-shutter-out-diag-1:hover:before {
+    top: -35%;
+    bottom: -35%
+}
+
+/*********************** .portfolioImgBox *******************/
+.portfolioImgBox img,.portfolioImgBox:after,.portfolioImgBox:before{width:100%;transition:all .3s ease 0s}
+.portfolioImgBox .icon,.box2,.box3,.box4,.box5 .icon li a{text-align:center}
+.portfolioImgBox0:after,.portfolioImgBox0:before,.portfolioImgBox:after,.portfolioImgBox:before,.box2 .inner-content:after,.box3:after,.box3:before,.box4:before,.box5:after,.box5:before,.box6:after,.box7:after,.box7:before{content:""}
+.portfolioImgBox,.portfolioImgBox1,.portfolioImgBox2,.portfolioImgBox3,.portfolioImgBox4,.portfolioImgBox6,.portfolioImgBox7,.portfolioImgBox8,.box2,.box20,.box21,.box3,.box4,.box5,.box5 .icon li a,.box6,.box7,.box8{overflow:hidden}
+.portfolioImgBox .title,.portfolioImgBox0 .title,.box4 .title,.box7 .title{letter-spacing:1px}
+.box3 .post,.box4 .post,.box5 .post,.box7 .post{font-style:italic}
+.mt-30{margin-top:30px}
+.mt-40{margin-top:40px}
+.mb-30{margin-bottom:30px}
+.portfolioImgBox .icon,.portfolioImgBox .title{margin:0;position:absolute}
+.portfolioImgBox{box-shadow:0 0 3px rgba(0,0,0,.3);position:relative}
+.portfolioImgBox:after,.portfolioImgBox:before{height:50%;background:rgba(0,0,0,.4);position:absolute;top:0;left:0;z-index:1;transform-origin:100% 0;transform:rotateZ(90deg)}
+.portfolioImgBox:after{top:auto;bottom:0;transform-origin:0 100%}
+.portfolioImgBox:hover:after,.portfolioImgBox:hover:before{transform:rotateZ(0)}
+.portfolioImgBox img{height:auto;transform:scale(1) rotate(0)}
+.portfolioImgBox:hover img{filter:sepia(80%);transform:scale(1.2) rotate(5deg)}
+.portfolioImgBox .title{font-size:16px;font-weight:600;color:#fff;text-transform:uppercase;text-shadow:0 0 1px #004cbf;bottom:30px;left:20px;opacity:0;z-index:2;transform:scale(0);transition:all .5s ease .2s; background:#f68b1f; padding:10px 20px; border-radius:0 19px}
+.portfolioImgBox:hover .title{opacity:1;transform:scale(1)}
+.portfolioImgBox .icon{padding:7px 5px;list-style:none;background:#f68b1f;border-radius:0 0 0 10px;top:-100%;right:0;z-index:2;transition:all .3s ease .2s}
+.portfolioImgBox:hover .icon{top:0}
+.portfolioImgBox .icon li{display:block;margin:10px 0}
+.portfolioImgBox .icon li a{display:block;width:35px;height:35px;line-height:35px;border-radius:10px;font-size:18px;color:#fff;transition:all .3s ease 0s}
+.box2 .icon li a,.box3 .icon a:hover,.box4 .icon li a:hover,.box5 .icon li a,.box6 .icon li a{border-radius:50%}
+.portfolioImgBox .icon li a:hover{color:#fff;box-shadow:0 0 10px #000 inset,0 0 0 3px #fff}
+@media only screen and (max-width:990px){.portfolioImgBox{margin-bottom:30px}}
+.icon-hitech{background:url(../img/portfolio-icon.png);     width: 27px;  height: 27px; display: block;margin: auto;}
+.hitechBlock{background-image: url(http://demo.themefisher.com/themefisher/blue/img/parallax/testimonial.jpg);
+    padding: 0;
+    color: #fff!important;
+	    background-attachment: fixed;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;}
+.hitechBlock .overlay {
+    background-color: rgba(0,0,0, 0.78);
+    padding: 70px 0 40px;
+}
+
+.canven-menu-iner ul li{float:left; width:100%;}
+.dropdown-menu {
+  width: 100%;
+}
+.dropdown-menu.show {
+  transform: unset !important;
+  position: static!important; will-change: unset!important; top: inherit!important; left: inherit!important;
+}
+.dropdown-item.active{ background-color: transparent;}
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 1400px){
+
+ol.carousel-indicators.our_speciality{bottom: -220px;}
+ #indexSlider .carousel-item h2{font-size: 1.375rem;}
+ #indexSlider .carousel-item p{
+  font-size: 0.8125rem;
+    line-height: 21px;
+  }
+.about_part {padding: 350px 0 50px;}
+  }
+@media only screen and (max-width: 1200px)
+{.logo{margin-left:30px;}
+.our_speciality .single_special_part .single_special_text{padding-left: 0;}
+.our_speciality .single_special_part img{width:50px;}
+.our_speciality .single_special_part .single_special_text{font-size:13px!important;}
+span.iconsbanner{min-height: 90px!important;}
+.our_speciality .single_special_part .single_special_text h3{font-size: 0.75rem;}
+#indexSlider .carousel-indicators li{height: 260px;}
+.single_special_part .single_special_text p {
+
+    font-size: 0.75rem;
+    line-height: 18px;
+
+}
+.heading{font-size: 2.188rem; margin-bottom:30px;}
+}
+@media only screen and (max-width: 991px){
+.about_part .about_img img{top:-100px;width:600px; margin:auto; margin-bottom: -100px;}
+.about_img{text-align:center}
+.about_part {padding: 200px 0 50px;}
+.our_speciality .single_special_part .single_special_text p{display:none;}
+#indexSlider .carousel-indicators li, .our_speciality .single_special_part{height: 156px; min-height: 156px;}
+span.iconsbanner {min-height: 60px !important;}
+ol.carousel-indicators.our_speciality {bottom: -142px;}
+.our_speciality .single_special_part{padding: 30px 10px 20px;}
+.our_speciality .single_special_part .single_special_text h3 {font-size: 0.6875rem;}
+.btn_1 { margin-top: 0; font-size: 0.75rem;}
+.main_menu{padding: 10px 0px;}
+.btn_1 span {width: 35px;height: 35px;line-height: 35px;}
+.main_menu .off-canven-menu{width: 400px; padding: 0 0 0 65px;}
+.showToggle .toggelContainer{left: 400px;}
+.main_menu .off-canven-menu{left: -400px;}
+.testislider{width:100%;}
+}
+@media only screen and (max-width: 800px){
+.our_speciality .single_special_part img{width: 40px;}
+#indexSlider .carousel-item h2 {font-size: 1.125rem;}
+
+}
+@media only screen and (max-width: 768px){
+#indexSlider .carousel-item p{display:none}
+.btn_1 {padding: 0;}
+.our_speciality .single_special_part .single_special_text h3{display:none;}
+#indexSlider .carousel-indicators li, .our_speciality .single_special_part {
+
+    height: 70px;
+    min-height: 70px;
+
+}
+.our_speciality .single_special_part {
+
+    padding: 15px 0;
+
+}
+ol.carousel-indicators.our_speciality {
+
+    bottom: -53px;
+
+}
+.about_part {
+
+    padding: 65px 0 50px;
+
+}
+#indexSlider .carousel-item .termiteText h2{ width: 150px;font-size: 0.8125rem;}
+.main_menu .off-canven-menu{width: 250px; padding: 0 0 0 40px;}
+.showToggle .toggelContainer{left: 250px;}
+.main_menu .off-canven-menu{left: -250px;}
+.main_menu .off-canven-menu ul li a{font-size:16px}
+.about_part, #clients, #portfolio, #services, #AIoT, #deeplearning, #sensors, #iot, #termite, #solution, #contact, #products, #contact2{display:none}
+.footer-area .justify-content-between{display:none;}
+.copyright_part {
+    padding: 0;
+}
+.footer-area {
+    padding: 2px 0px 0px;
+}
+.desktopLink{display:block}
+.footer-area hr {
+    margin-top: 0rem;
+    margin-bottom: 10px;
+
+}
+.footer-area p.footer-text {
+    padding-top: 15px;
+    padding: 10px;
+}
+/* html, body, #indexSlider, #indexSlider .carousel-inner, #indexSlider .carousel-item, #indexSlider .carousel-item img{height:100%}
+} */
+@media only screen and (max-width: 575px){
+.about_part {
+
+    padding: 78px 0 50px;
+
+}
+.our_speciality .single_special_part img {
+
+    width: 35px;
+
+}
+.single_special_part img {
+
+    margin-bottom: 0;
+
+}
+#indexSlider .carousel-indicators li, .our_speciality .single_special_part {
+
+    height: 55px;
+    min-height: 55px;
+
+}
+.about_part .about_part_text {
+
+    padding-left: 0;
+    padding-top: 0;
+
+}
+ol.carousel-indicators.our_speciality {
+
+    bottom: -50px;
+
+}
+.our_speciality .single_special_part {
+
+    padding: 12px 0;
+
+}
+#indexSlider .text-box{top: 60%;}
+.search_icon .btn-primary{height: 30px; padding: 0 15px; font-size: 0.75rem;}
+.toggelContainer{height: 50px;
+
+width: 50px; padding-top: 13px;}
+.main_menu {
+
+    padding: 5px 0;
+    background: #05073c;
+    position: relative;
+
+}
+.logo {
+
+    margin-left: 20px;max-width: 145px;
+
+height: auto;
+
+}
+body {font-size: 0.8125rem;}
+.heading {
+
+    font-size: 1.438rem;
+    margin-bottom: 30px;
+
+}
+.search_icon .btn-primary {
+
+    height: 25px;
+    padding: 0 8px;
+    font-size: 0.6875rem;
+
+}
+.testislider  .carousel-control {display:none}
+}
+@media only screen and (max-width: 400px){
+
+#indexSlider .text-box {
+    top: 40%;
+}
+#indexSlider .carousel-item h2{font-size: 1rem;}
+ol.carousel-indicators.our_speciality {
+
+    bottom: -64px;
+
+}
+element {
+
+}
+#indexSlider .carousel-item h2 {
+
+    font-size: 0.875rem;
+
+}
+#indexSlider .carousel-item h2, #indexSlider .carousel-item p {
+    margin-bottom: 0;
+
+}
+.btn_1 {margin-top:5px;}
+.btn_1 span {
+width: 20px;
+    height: 20px;
+    margin-left: 8px;
+    line-height: 18px;
+	
+
+}
+.our_speciality .single_special_part img {
+
+    width: 28px;
+
+}
+.our_speciality .single_special_part img{margin-bottom:0}
+#indexSlider .carousel-indicators li.active:before {
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #f68b1f;
+    margin-left: -6px;
+    
+}
+.main_menu .off-canven-menu{width: 150px; padding: 0 0 0 20x;}
+.showToggle .toggelContainer{left: 150px;}
+.main_menu .off-canven-menu{left: -150px;}
+.main_menu .off-canven-menu ul li a{font-size:14px}
+.dropdown-toggle::after {
+    position: absolute;
+    left: 70px;
+    top: 12px;
+}

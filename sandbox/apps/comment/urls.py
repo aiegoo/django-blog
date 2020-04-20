@@ -9,3 +9,5 @@ urlpatterns = [
     url(r'^notification/mark-to-read/$', mark_to_read, name='mark_to_read'),
     url(r'^notification/mark-to-delete/$', mark_to_delete, name='mark_to_delete'),
 ]
+
+app_name = 'comment'

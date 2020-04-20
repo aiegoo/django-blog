@@ -1,0 +1,23 @@
+{% load blog_tags static comment_tags %}
+{% load humanize %}
+
+<link href="{% static 'blog/css/detail.css' %}?v=20180102.08" rel="stylesheet">
+<link href="{% static 'blog/css/github-colorful.css' %}?v=20180102.130" rel="stylesheet">
+<link href="{% static 'comment/css/base_comment.css' %}?v=20180114.008" rel="stylesheet">
+{#style="max-width:1000px; margin: 20px auto;"#}
+{% block base_content %}
+<div id="custom-content" class="white-popup-block">
+    <div class="card rounded-0 border-0" id="article">
+        <div class="card-body px-2 px-md-3 pb-0">
+            <h1 class="card-title text-center font-weight-bold text-info">{{ article.title }}</h1>
+            <div class="article-body mt-4 f-17">
+                {{ article.body|safe }}
+                <p class="font-weight-bold text-info">
+                    <i class="fa fa-bullhorn mx-1"></i>
+                    <!-- Original article, reproduced please indicate the source:<a href="{{ request.build_absolute_uri }}">{{ request.build_absolute_uri }}</a> -->
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -13,7 +13,7 @@ help: ## Display this help message
 ##################
 # Install commands
 ##################
-install: install-python install-test assets ## Install requirements for local development and production
+install: install-python install-test install-js ## Install requirements for local development and production
 
 install-python: ## Install python requirements
 	pip install -r requirements.txt
@@ -24,9 +24,8 @@ install-test: ## Install test requirements
 install-migrations-testing-requirements: ## Install migrations testing requirements
 	pip install -r requirements_migrations.txt
 
-assets: ## Install static assets
+install-js: ## Install js requirements
 	npm install
-	npm run build
 
 venv: ## Create a virtual env and install test and production requirements
 	$(shell which python3) -m venv $(VENV)
@@ -38,19 +37,16 @@ venv: ## Create a virtual env and install test and production requirements
 #############################
 sandbox: install build_sandbox ## Install requirements and create a sandbox
 
-build_sandbox: sandbox_clean sandbox_load_user sandbox_load_data ## Creates a sandbox from scratch
+build_sandbox: sandbox_clean sandbox_collectstatic ## Creates a sandbox from scratch
 
 sandbox_clean: ## Clean sandbox images,cache,static and database
 	# Remove media
-	-rm -rf sandbox/public/media/images
-	-rm -rf sandbox/public/media/cache
-	-rm -rf sandbox/public/static
-	-rm -f sandbox/db.sqlite
 	# Create database
+	sandbox/manage.py makemigrations
 	sandbox/manage.py migrate
 
-sandbox_load_user: ## Load user data into sandbox
-	sandbox/manage.py loaddata sandbox/fixtures/auth.json
+sandbox_collectstatic: ## Load user data into sandbox
+	sandbox/manage.py collectstatic
 
 sandbox_load_data: ## Import fixtures and collect static
 	# Import some fixtures. Order is important as JSON fixtures include primary keys
@@ -83,8 +79,8 @@ coverage: venv ## Generate coverage report
 lint: ## Run flake8 and isort checks
 	flake8 src/oscar/
 	flake8 tests/
-	isort -c -q --recursive --diff src/
-	isort -c -q --recursive --diff tests/
+	isort -q --recursive --diff src/
+	isort -q --recursive --diff tests/
 
 test_migrations: install-migrations-testing-requirements ## Tests migrations
 	cd sandbox && ./test_migrations.sh
@@ -93,7 +89,7 @@ test_migrations: install-migrations-testing-requirements ## Tests migrations
 # Translations Handling
 #######################
 extract_translations: ## Extract strings and create source .po files
-	cd src/oscar; django-admin.py makemessages -a
+	cd src/oscar; django-admin.py makemessages -a --no-wrap
 
 compile_translations: ## Compile translation files and create .mo files
 	cd src/oscar; django-admin.py compilemessages
@@ -101,6 +97,9 @@ compile_translations: ## Compile translation files and create .mo files
 ######################
 # Project Management
 ######################
+css: install-js ## Compile css files
+	npm run build
+
 clean: ## Remove files not in source control
 	find . -type f -name "*.pyc" -delete
 	rm -rf nosetests.xml coverage.xml htmlcov *.egg-info *.pdf dist violations.txt

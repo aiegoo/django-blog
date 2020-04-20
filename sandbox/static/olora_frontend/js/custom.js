@@ -186,14 +186,13 @@
       })
   }
   // menu fixed js code
-  $(window).scroll(function () {
-    var window_top = $(window).scrollTop() + 1;
-    if (window_top > 50) {
-      $('.main_menu').addClass('menu_fixed animated ');
+  var interval = setInterval(() => {
+    if ($(window).scrollTop() > 50) {
+      $('.main_menu').addClass('menu_fixed animated');
     } else {
-      $('.main_menu').removeClass('menu_fixed animated ');
+      $('.main_menu').removeClass('menu_fixed animated');
     }
-  });
+  }, 250);
 
   // Search Toggle
   $("#search_input_box").hide();
@@ -207,8 +206,9 @@
 
 
   //memnu js
-  jQuery(document).ready(function ($) {
-    $(".menu-trigger").on('click', function () {
+
+    $(".toggelContainer").on('click', function () {
+	  $("body").toggleClass("showToggle")										
       $(".off-canven-menu").addClass("active")
       $(".offcanvas-overlay").addClass("active")
     });
@@ -216,7 +216,7 @@
       $(".off-canven-menu").removeClass("active")
       $(".offcanvas-overlay").removeClass("active")
     });
-  });
+
 
   //gallery js
   $('.grid').masonry({

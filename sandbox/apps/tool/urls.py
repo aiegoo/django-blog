@@ -18,3 +18,5 @@ urlpatterns = [
     url(r'^user-agent/ajax/$', useragent_api, name='useragent_api'),
     url(r'^html-special-characters/$', html_characters, name='html_characters'),  # HTML特殊字符查询
 ]
+
+app_name = 'tool'

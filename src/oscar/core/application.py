@@ -1,6 +1,10 @@
 from django.apps import AppConfig
 from django.core.exceptions import ImproperlyConfigured
-from django.urls import RegexURLPattern, reverse
+from django.urls import reverse, reverse_lazy
+try:
+    from django.urls import RegexURLPattern
+except:
+    from django.urls import URLPattern as RegexURLPattern
 
 from oscar.core.loading import feature_hidden
 

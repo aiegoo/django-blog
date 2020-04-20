@@ -5,7 +5,9 @@ import sys
 import platform
 import pymysql
 from django.contrib.messages import constants as messages
+from django.utils.translation import ugettext_lazy as _
 from dotenv import load_dotenv
+
 load_dotenv()
 
 pymysql.version_info = (1, 3, 13, "final", 0)
@@ -18,7 +20,7 @@ location = lambda x: os.path.join(
 
 DEBUG = env.bool('DEBUG', default=True)
 
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['localhost', '127.0.0.1', '159.65.8.38', 'o-lora.com','lightup.co.kr','www.lightup.co.kr'])
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['localhost', '127.0.0.1'])
 
 EMAIL_SUBJECT_PREFIX = '[Oscar sandbox] '
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -51,40 +53,40 @@ DATABASES = {
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
 USE_TZ = True
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'Asia/Seoul'
 
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
 
 # Includes all languages that have >50% coverage in Transifex
 # Taken from Django's default setting for LANGUAGES
-gettext_noop = lambda s: s
+# gettext_noop = lambda s: s
 LANGUAGES = (
-    ('en-us', gettext_noop('English (US)')),
-    ('ar', gettext_noop('Arabic')),
-    ('ca', gettext_noop('Catalan')),
-    ('cs', gettext_noop('Czech')),
-    ('da', gettext_noop('Danish')),
-    ('de', gettext_noop('German')),
-    ('en-gb', gettext_noop('British English')),
-    ('el', gettext_noop('Greek')),
-    ('es', gettext_noop('Spanish')),
-    ('fi', gettext_noop('Finnish')),
-    ('fr', gettext_noop('French')),
-    ('it', gettext_noop('Italian')),
-    ('ko', gettext_noop('Korean')),
-    ('nl', gettext_noop('Dutch')),
-    ('pl', gettext_noop('Polish')),
-    ('pt', gettext_noop('Portuguese')),
-    ('pt-br', gettext_noop('Brazilian Portuguese')),
-    ('ro', gettext_noop('Romanian')),
-    ('ru', gettext_noop('Russian')),
-    ('sk', gettext_noop('Slovak')),
-    ('uk', gettext_noop('Ukrainian')),
-    ('zh-cn', gettext_noop('Simplified Chinese')),
+    ('en', _('English (US)')),
+    ('ar', _('Arabic')),
+    ('ca', _('Catalan')),
+    ('cs', _('Czech')),
+    ('da', _('Danish')),
+    ('de', _('German')),
+    ('en-gb', _('British English')),
+    ('el', _('Greek')),
+    ('es', _('Spanish')),
+    ('fi', _('Finnish')),
+    ('fr', _('French')),
+    ('it', _('Italian')),
+    ('kn', _('Korean')),
+    ('nl', _('Dutch')),
+    ('pl', _('Polish')),
+    ('pt', _('Portuguese')),
+    ('pt-br', _('Brazilian Portuguese')),
+    ('ro', _('Romanian')),
+    ('ru', _('Russian')),
+    ('sk', _('Slovak')),
+    ('uk', _('Ukrainian')),
+    ('zh-cn', _('Simplified Chinese')),
 )
 
 # SITE_ID = 1
@@ -184,7 +186,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'urls'
 
-
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error.
@@ -266,7 +267,6 @@ LOGGING = {
     }
 }
 
-
 INSTALLED_APPS = [
     'bootstrap_admin',  # Register bootstrap background management interface,This must be at the top
 
@@ -276,8 +276,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.humanize', # add user-friendly filter
-    'django.contrib.sitemaps', # sitemap
+    'django.contrib.humanize',  # add user-friendly filter
+    'django.contrib.sitemaps',  # sitemap
     'django.contrib.sites',
     'django.contrib.flatpages',
 
@@ -312,7 +312,7 @@ INSTALLED_APPS = [
     'oscar.apps.dashboard.communications.apps.CommunicationsDashboardConfig',
     'oscar.apps.dashboard.shipping.apps.ShippingDashboardConfig',
 
-    'apps.oauth', # custom user app
+    'apps.oauth',  # custom user app
     # allauth required to register the app
     'allauth',
     'allauth.account',
@@ -322,14 +322,13 @@ INSTALLED_APPS = [
 
     'rest_framework',
 
-    'crispy_forms', # bootstrap form style
-    'imagekit', # upload image application
+    'crispy_forms',  # bootstrap form style
+    'imagekit',  # upload image application
 
-    'haystack', # full-text search application this should be placed before other applications
-    'apps.blog', # blogging app
-    'apps.tool', # tools
-    'apps.comment', # comments
-
+    'haystack',  # full-text search application this should be placed before other applications
+    'apps.blog',  # blogging app
+    'apps.tool',  # tools
+    'apps.comment',  # comments
 
     # 3rd-party apps that Oscar depends on
     'widget_tweaks',
@@ -346,7 +345,9 @@ INSTALLED_APPS = [
     'apps.gateway',
     'apps.olora_frontend',
 
-    'django_hosts'
+    'django_hosts',
+    'ckeditor',
+    'ckeditor_uploader'
 ]
 
 # Add Oscar's custom auth backend so users can sign in using their email
@@ -394,13 +395,13 @@ HAYSTACK_CONNECTIONS = {
     },
 }
 # Here's a sample Haystack config if using Solr (which is recommended)
-#HAYSTACK_CONNECTIONS = {
+# HAYSTACK_CONNECTIONS = {
 #    'default': {
 #        'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
 #        'URL': 'http://127.0.0.1:8983/solr/oscar_latest/',
 #        'INCLUDE_SPELLING': True
 #    },
-#}
+# }
 
 # =============
 # Debug Toolbar
@@ -421,7 +422,6 @@ OSCAR_SHOP_TAGLINE = 'Sandbox'
 
 OSCAR_RECENTLY_VIEWED_PRODUCTS = 20
 OSCAR_ALLOW_ANON_CHECKOUT = True
-
 
 # Order processing
 # ================
@@ -465,7 +465,6 @@ THUMBNAIL_KVSTORE = env(
     'THUMBNAIL_KVSTORE',
     default='sorl.thumbnail.kvstores.cached_db_kvstore.KVStore')
 THUMBNAIL_REDIS_URL = env('THUMBNAIL_REDIS_URL', default=None)
-
 
 # Django 1.6 has switched to JSON serializing for security reasons, but it does not
 # serialize Models. We should resolve this by extending the
@@ -530,6 +529,8 @@ CACHES = {
         }
     }
 }
+# SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+# SESSION_CACHE_ALIAS = "default"
 
 # restframework settings
 REST_FRAMEWORK = {
@@ -556,14 +557,16 @@ REST_FRAMEWORK = {
 # Mailbox configuration
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD =  os.environ.get('EMAIL_HOST_PASSWORD')# This is not an email password, but an authorization code
-EMAIL_PORT = 587 # As Alibaba Cloud's port 25 cannot be opened, you must use SSL and then use port 465
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')  # This is not an email password, but an authorization code
+EMAIL_PORT = 587  # As Alibaba Cloud's port 25 cannot be opened, you must use SSL and then use port 465
 # Whether SSL or TLS is used, in order to use port 465, use this
 EMAIL_USE_TLS = True
-# The default sender, if not set, django uses the webmaster @ localhost by default, so set it to your own available email
+# The default sender, if not set, django uses the webmaster @ localhost by default, so set it to your own available
+# email
 DEFAULT_FROM_EMAIL = 'support <your-email@163.com>'
+SERVER_EMAIL = DEFAULT_FROM_EMAIL
 
-#Website default settings and context information
+# Website default settings and context information
 SITE_END_TITLE = 'The name of the website, such as TendCode'
 SITE_DESCRIPTION = 'Website description'
 SITE_KEYWORDS = 'Website keywords, multiple words separated by commas'
@@ -574,4 +577,28 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 ROOT_HOSTCONF = 'hosts'
 
 DEFAULT_HOST = 'www'
-PARENT_HOST = "lightup.co.kr"
+PARENT_HOST = os.environ.get('PARENT_HOST')
+
+GITHUB_WEBHOOK_KEY = os.environ.get('GITHUB_WEBHOOK_KEY')
+
+DATA_UPLOAD_MAX_NUMBER_FIELDS = 10240  # higher than the count of fields
+
+# for translation
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
+
+CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
+# CKEDITOR_BASEPATH = "/public/static/ckeditor/ckeditor"
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_RESTRICT_BY_USER = True
+# CKEDITOR_BROWSE_SHOW_DIRS = True
+# CKEDITOR_RESTRICT_BY_DATE = True
+CKEDITOR_IMAGE_BACKEND = "pillow"
+CKEDITOR_ALLOW_NONIMAGE_FILES = False
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Advanced'
+    },
+}
