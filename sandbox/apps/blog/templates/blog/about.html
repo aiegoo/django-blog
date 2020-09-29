@@ -1,11 +1,10 @@
 {% extends 'blog/base.html' %}
 {% load static %}
 
-{% block head_title %}About website, website and blogger introduction{% endblock %}
+{% block head_title %}About blog{% endblock %}
 {% block metas %}
-<meta name="description"
-      content="This website is a personal blog built with django + bootstrap4. In the spirit of learning and sharing, the blog project is open source. The source code can be viewed in my Github. The website construction process can be viewed on the page Timeline">
-<meta name="keywords" content="Website About page, about website, about blogger, about webmaster">
+<meta name="description"content="High Tech">
+<meta name="keywords" content="High Tech">
 {% endblock %}
 
 
@@ -17,43 +16,12 @@
                 <h2 class="font-weight-bold">About Website</h2>
                 <hr style="margin: .1rem;dashed #333;"/>
                 <ul class="pl-4 ml-2">
-                    <li>Blogger Github address:<a href="https://github.com/Hopetree"
-                                        target="_blank">https://github.com/Hopetree</a></li>
-                </ul>
-                <h2 class="mt-2 font-weight-bold">About blogger</h2>
-                <hr style="margin: .1rem;dashed #333;"/>
-                <ul class="pl-4 ml-2">
-                    <li>Life is short, i use Python！</li>
                 </ul>
                 <h2 class="mt-2 font-weight-bold">Features</h2>
                 <hr style="margin: .1rem;dashed #333;"/>
-                <ul class="pl-4 ml-2">
-                    <li>Django Built-in background management system to facilitate the management of articles, users and other dynamic content</li>
-                    <li>Article classification, tags, pageview statistics, and normative SEO Set up</li>
-                    <li> User authentication system, which extends Oauth2.0 authentication on the basis of Django's own user system, and supports third-party authentication such as Weibo and Github.                    
-                    <li> Article comment system, cool input box special effects, support markdown syntax, secondary comment structure and reply function </li>                   
-                    <li> Information reminder function, login and logout reminders, receive comments and reply reminders, information management </li>
-                    <li> Powerful full-text search function, just enter keywords to display articles related to the entire site </li>
-                    <li> RSS blog subscription function and canonical Sitemap Sitemap </li>
-                    <li> The caching system supported by django-redis follows the caching principle and accelerates the speed of website opening. </li>
-                    <li> Practical online tool to implement the interface call of online crawlers </li>
-                    <li> Display of friendship links and referrer sites </li>
-                    <li> RESTful API-style API interface </li>
-                </ul>
                 <h2 class="mt-2 font-weight-bold">Website support</h2>
                 <hr style="margin: .1rem;dashed #333;"/>
-                <ul class="pl-4 ml-2">
-                 <li> The front end uses Bootstrap4 + jQuery to support responsiveness; the icon uses Font Awesome </li>
-                    <li> Backend Python 3.5.2, Django 1.11.12, other dependencies, see requirements.txt in the source code. </li>
-                    <li> Background database uses MySQL, cache database uses Redis </li>
-                    <li> Site deployment uses Nginx + gunicorn, previously used Nginx + uwsgi </li>
-                    <li> bootstrap-admin is used to beautify the background management system and become a responsive interface. </li>
-                    <li> django-allauth, etc. are used for third-party user logins </li>
-                    <li> django-haystack and jieba are used to support full-text search </li>
-                    <li> django-redis cache </li>
-                    <li> Use RESTful style API interface supported by django restframework </li>
-                    <li> Check the website source code for other dependencies </li>
-                </ul>
+                <ul class="pl-4 ml-2"></ul>
             </div>
         </div>
         <div class="col-lg-4">

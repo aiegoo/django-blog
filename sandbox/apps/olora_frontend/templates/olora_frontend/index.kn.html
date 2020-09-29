@@ -79,7 +79,7 @@
         content: "";
         animation: 10s linear 0s infinite running spin;
         -webkit-animation: 10s linear 0s infinite running spin;
-        background: url('{{ static_URL }}olora_frontend/img/services/service-circle-bg.png') no-repeat center center;
+        background: url('{{ STATIC_URL }}olora_frontend/img/services/service-circle-bg.png') no-repeat center center;
         width: 100px;
         height: 100px;
         z-index: -1;
@@ -87,9 +87,9 @@
 }
 </style>
 </head>
-<body>
+  <body id="top" class="mobile-mode">
 <!--::header part start::-->
-<header class="main_menu home_menu">
+    <header class="main_menu home_menu mobile-mode">
   <div class="container">
     <div class="row align-items-center">
       <div class="col-lg-12">
@@ -100,10 +100,10 @@
             <div class="canven-menu-warp">
               <div class="canven-menu-iner"><nav>
                 <ul>
-                  <li><a href="#" class="active"><span class="text">Home</span> <span class="line"></span></a></li>
+                  <li><a  class="active"><span class="text">Home</span> <span class="line"></span></a></li>
                   <li><a href="#about"><span class="text">회사소개</span> <span class="line"></span></a></li>
                   <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <span class="text">AIoT</span><span class="line"></span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -148,62 +148,191 @@
 </header>
 <!-- Header part end-->
 <div class="Home">
-<div id="indexSlider" class="carousel slide" data-ride="carousel">
+<div id="indexSlider" 
+class="carousel slide mobile-mode"
+data-ride="carousel">
   <!-- The slideshow -->
   <div class="carousel-inner">
-    <div class="carousel-item active"> <img src="{% static 'olora_frontend/img/banner-01.jpg' %}" alt="DEEP LEARNING">
+    <div class="carousel-item active"> 
+      <picture>
+        <source
+          media="(max-width: 767px)"
+          srcset="{% static 'olora_frontend/' %}img/future-making/deeplearning_topx768x768.jpg"
+        />
+        <source
+          media="(min-width: 768px and max-width: 1348px)"
+          srcset="{% static 'olora_frontend/' %}img/future-making/deeplearningx1024x480.svg"
+        />
+        <source
+          media="(min-width: 1349px)"
+          srcset="{% static 'olora_frontend/' %}img/future-making/deeplearningx1349x632.svg"
+        />
+        <img
+          src="{% static 'olora_frontend/' %}img/future-making/deeplearningx1349x632.svg"
+          alt="DEEP LEARNING"
+        />
+      </picture>
       <div class="text-box">
         <div class="row align-items-center">
           <div class="col-xl-4 col-md-6">
             <h2 class="wow slideInLeft" data-wow-duration="2s">딥러닝을 이용한 모니터링 시스템 </h2>
             <p class="wow slideInLeft" data-wow-duration="2s">로라 플랫폼을 바탕으로 계발된 저전력 센서 데이타를 정제 후 본사의 모델을 적용한 딥러닝으로 그려지는 새로운 인공지능 모니터링 앱</p>
             <div class="banner_btn wow slideInLeft" data-wow-duration="2s">
-                <a href="{% url 'blog:detailmodal' slug='deeplearning' %}" class="btn_1 ajax-popup-link">learn more<span><img src="{% static 'olora_frontend/img/icon/left.svg' %}" alt=""></span></a>
+              <a
+              reveal="#deeplearning"
+              class="text-white btn_1 d-block d-md-none"
+              >learn more<span
+                ><img src="{% static 'olora_frontend/' %}img/icon/left.svg" alt="" /></span
+            ></a>
+            <a
+              reveal="#deeplearning"
+              href="#deeplearning"
+              class="text-white btn_1 d-none d-md-block"
+              >learn more<span
+                ><img src="{% static 'olora_frontend/' %}img/icon/left.svg" alt="" /></span
+            ></a>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="carousel-item"> <img src="{% static 'olora_frontend/img/banner-02.jpg' %}" alt="SENSORS">
+    <div class="carousel-item"> 
+      <picture>
+        <source
+          media="(max-width: 767px)"
+          srcset="{% static 'olora_frontend/' %}img/future-making/01_topx768x768.jpg"
+        />
+        <source
+          media="(min-width: 768px and max-width: 1348px)"
+          srcset="{% static 'olora_frontend/' %}img/future-making/01x1024x480.svg"
+        />
+        <source
+          media="(min-width: 1349px)"
+          srcset="{% static 'olora_frontend/' %}img/future-making/01x1349x632.svg"
+        />
+        <img
+          src="{% static 'olora_frontend/' %}img/banner-02.jpg"
+          alt="SENSORS"
+        />
+      </picture>
       <div class="text-box">
         <div class="row align-items-center">
           <div class="col-xl-6 col-md-6">
             <h2 class="wow slideInLeft" data-wow-duration="2s">센서 제품</h2>
             <p class="wow slideInLeft" data-wow-duration="2s">하이테크는 부착 구조물(문화재, 건축물, 교량, 터널 등)과 센서 특성에 따른 맞춤형 구축기술을 보유하고있습니다.</p>
             <div class="banner_btn wow slideInLeft" data-wow-duration="2s">
-                <a href="{% url 'blog:detailmodal' slug='sensor' %}" class="btn_1 ajax-popup-link">learn more <span><img src="{% static 'olora_frontend/img/icon/left.svg' %}" alt=""></span></a>
+              <a reveal="#sensors" class="text-white btn_1 d-block d-md-none"
+              >learn more<span
+                ><img src="{% static 'olora_frontend/' %}img/icon/left.svg" alt="" /></span
+            ></a>
+            <a
+              reveal="#sensors"
+              href="#sensors"
+              class="text-white btn_1 d-none d-md-block"
+              >learn more<span
+                ><img src="{% static 'olora_frontend/' %}img/icon/left.svg" alt="" /></span
+            ></a>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="carousel-item"> <img src="{% static 'olora_frontend/img/banner-05.jpg' %}" alt="TERMITE DETECTION">
+    <div class="carousel-item"> 
+      <picture>
+        <source
+          media="(max-width: 767px)"
+          srcset="{% static 'olora_frontend/' %}img/future-making/iot-banner_topx768x768.jpg"
+        />
+        <source
+          media="(min-width: 768px and max-width: 1348px)"
+          srcset="{% static 'olora_frontend/' %}img/future-making/iot-bannerx1024x480.svg"
+        />
+        <source
+          media="(min-width: 1349px)"
+          srcset="{% static 'olora_frontend/' %}img/future-making/iot-bannerx1349x632.svg"
+        />
+        <img
+          src="{% static 'olora_frontend/' %}img/banner-05.jpg"
+          alt="IOT MONITORING APP"
+        />
+      </picture>
       <div class="text-box ">
         <div class="row align-items-center ">
           <div class="col-xl-6 col-md-6">
             <h2 class="wow slideInLeft" data-wow-duration="2s">IoT 모니터링 시스템</h2>
             <p class="wow slideInLeft" data-wow-duration="2s">인공지능을 활용한 문화 유산의 건정성과 안전을 확보하여 인간 에러의 한계를 극복하고 더 나은 품질관리 서비스를 위해 다향한 방식의 UI를 제공, 보다 편리한 서비스 품질을 위해 노력하고있습니다. </p>
             <div class="banner_btn wow slideInLeft" data-wow-duration="2s">
-                <a href="{% url 'blog:detailmodal' slug='iot' %}" class="btn_1 ajax-popup-link">learn more <span><img src="{% static 'olora_frontend/img/icon/left.svg' %}" alt=""></span></a>
+              <a reveal="#iot" class="text-white btn_1 d-block d-md-none"
+              >learn more<span
+                ><img src="{% static 'olora_frontend/' %}img/icon/left.svg" alt="" /></span
+            ></a>
+            <a
+              reveal="#iot"
+              href="#iot"
+              class="text-white btn_1 d-none d-md-block"
+              >learn more<span
+                ><img src="{% static 'olora_frontend/' %}img/icon/left.svg" alt="" /></span
+            ></a>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="carousel-item"> <img src="{% static 'olora_frontend/img/banner-03.jpg' %}" alt="TERMITE DETECTION">
+    <div class="carousel-item"> 
+      <picture>
+        <source
+          media="(max-width: 767px)"
+          srcset="{% static 'olora_frontend/' %}img/future-making/banner-03_topx768x768.jpg"
+        />
+        <source media="(min-width: 768px)" srcset="{% static 'olora_frontend/' %}img/mobile/banner-03.jpg" />
+        <img
+          src="{% static 'olora_frontend/' %}img/mobile/banner-03.jpg"
+          alt="TERMITE DETECTION"
+        />
+      </picture>
       <div class="text-box">
         <div class="row align-items-center">
           <div class="col-xl-4 col-md-6 termiteText">
             <h2 class="wow slideInLeft" data-wow-duration="2s">흰개미 모니터링</h2>
-            <p class="wow slideInLeft" data-wow-duration="2s">관찰 대상은 작지만 적용되는 데이타는 빅 - 데이타. 보이지 않는 해충의 공격이 시작되기전에 탐지하여 경보 발령하는 인공지능 시스템 </p>
+            <p class="wow slideInLeft" data-wow-duration="2s">관찰 대상은 작지만 적용되는 데이타는 빅^데이타. 보이지 않는 해충의 공격이 시작되기전에 탐지하여 경보 발령하는 인공지능 시스템 </p>
             <div class="banner_btn wow slideInLeft" data-wow-duration="2s">
-                <a href="{% url 'blog:detailmodal' slug='termite' %}" class="btn_1 ajax-popup-link">learn more <span><img src="{% static 'olora_frontend/img/icon/left.svg' %}" alt=""></span></a>
+              <a
+              reveal="#termite"
+              class="text-white btn_1 d-block d-md-none"
+              >learn more<span
+                ><img src="{% static 'olora_frontend/' %}img/icon/left.svg" alt="" /></span
+            ></a>
+            <a
+              reveal="#termite"
+              href="#termite"
+              class="text-white btn_1 d-none d-md-block"
+              >learn more<span
+                ><img src="{% static 'olora_frontend/' %}img/icon/left.svg" alt="" /></span
+            ></a>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="carousel-item"> <img src="{% static 'olora_frontend/img/banner-04.jpg' %}" alt="SOLUTIONS">
+    <div class="carousel-item"> 
+      <picture>
+        <source
+          media="(max-width: 767px)"
+          srcset="{% static 'olora_frontend/' %}img/future-making/02_topx768x768.png"
+        />
+        <source
+          media="(min-width: 768px and max-width: 1348px)"
+          srcset="{% static 'olora_frontend/' %}img/future-making/02x1024x480.svg"
+        />
+        <source
+          media="(min-width: 1349px)"
+          srcset="{% static 'olora_frontend/' %}img/future-making/02x1349x632.svg"
+        />
+        <img
+          src="{% static 'olora_frontend/' %}img/banner-04.jpg"
+          alt="SOLUTIONS"
+        />
+      </picture>
       <div class="text-box">
         <div class="row align-items-center">
           <div class="col-xl-4 col-md-8">
@@ -212,15 +341,36 @@
             <p class="wow slideInLeft" data-wow-duration="2s"> We provide you in a wide range of sectors with a professional, yet refreshingly personal approach.
               Join us, and thrive on your ventures. </p>
             <div class="banner_btn wow slideInLeft" data-wow-duration="2s">
-                <a href="{% url 'blog:detailmodal' slug='solutions' %}" class="btn_1 ajax-popup-link">learn more <span><img src="{% static 'olora_frontend/img/icon/left.svg' %}" alt=""></span></a>
+              <a
+              reveal="#solution"
+              class="text-white btn_1 d-block d-md-none"
+              >learn more
+              <span><img src="{% static 'olora_frontend/' %}img/icon/left.svg" alt="" /></span
+            ></a>
+            <a
+              reveal="#solution"
+              href="#solution"
+              class="text-white btn_1 d-none d-md-block"
+              >learn more
+              <span><img src="{% static 'olora_frontend/' %}img/icon/left.svg" alt="" /></span
+            ></a>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <!-- Left and right controls -->
-  <a class="carousel-control-prev" href="#indexSlider" data-slide="prev"> <span class="carousel-control-prev-icon"></span> </a> <a class="carousel-control-next" href="#indexSlider" data-slide="next"> <span class="carousel-control-next-icon"></span> </a>
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#indexSlider" data-slide="prev">
+          <span
+            class="carousel-control-prev-icon animated infinite pulse delay-2s"
+          ></span>
+        </a>
+        <a class="carousel-control-next" href="#indexSlider" data-slide="next">
+          <span
+            class="carousel-control-next-icon animated infinite pulse delay-2s"
+          ></span>
+        </a>
   <!-- Indicators -->
   <ol class="carousel-indicators our_speciality">
     <li data-target="#indexSlider" data-slide-to="0" class="active">
@@ -318,8 +468,15 @@
       <div class="progress-tracker">
         <span class="lesson-number">5</span>
       </div>
+      
       <div class="lesson-details">Services</div>
     </a>
+    <a href="#aht" class="progress-item">
+          <div class="progress-tracker">
+            <span class="lesson-number">6</span>
+          </div>
+          <div class="lesson-details">At High Tech</div>
+        </a>
     <a href="#deeplearning" class="progress-item">
       <div class="progress-tracker">
         <span class="lesson-number">7</span>
@@ -379,7 +536,11 @@
       </div>
       <div class="col-lg-6">
         <div class="about_img" id="about_img">
-          <img src="{% static 'olora_frontend/img/future-making/ugujung.svg' %}" class="img-fluid d-none d-lg-inline-block" walt="#">
+          <img 
+          srcset="{% static 'olora_frontend/img/future-making/mobile/ugujung.jpg' %} 576w,
+          {% static 'olora_frontend/img/future-making/ugujung.svg' %}"
+          src="{% static 'olora_frontend/img/future-making/ugujung.svg' %}"
+          class="img-fluid d-none d-lg-inline-block" walt="#">
         </div>
       </div>
     </div>
@@ -404,20 +565,20 @@
           </div>
           <div class="single_slide_item">
             <center>
-              <div class="clientLogo"> <a href="#"><img src="{% static 'olora_frontend/img/clients/culture-institute.png' %}" alt=""></a></div>
+              <div class="clientLogo"> <a ><img src="{% static 'olora_frontend/img/clients/culture-institute.png' %}" alt=""></a></div>
               <div class="single_special_text">
                 <h3>Culture Institute</h3>
                 <p>IoT Monitoring System</p>
-                <a href="#">강원문화재연구소</a> </div>
+                <a >강원문화재연구소</a> </div>
             </center>
           </div>
           <div class="single_slide_item">
             <center>
-              <div class="clientLogo"> <a href="#"><img src="{% static 'olora_frontend/img/clients/sk-telecom.png' %}" alt=""></a></div>
+              <div class="clientLogo"> <a ><img src="{% static 'olora_frontend/img/clients/sk-telecom.png' %}" alt=""></a></div>
               <div class="single_special_text">
                 <h3>SK telecom</h3>
                 <p>Alliance</p>
-                <a href="#">SK텔레콤</a> </div>
+                <a >SK텔레콤</a> </div>
             </center>
           </div>
           <div class="single_slide_item">
@@ -495,7 +656,7 @@
             <li data-target="#ourClientSlider" data-slide-to="5"></li>
           </ol>
           <!-- Wrapper for carousel items -->
-          <div class="carousel-inner">
+          <div class="carousel-inner products">
             <div class="item carousel-item active text-center">
               <div class="row productOut">
                 <div class="col-lg-6">
@@ -660,7 +821,7 @@
                     <div class="portfolioImgBox"> <img src="{% static 'olora_frontend/img/portfolio/award1.jpg' %}" alt="">
                       <h3 class="title">수상실적</h3>
                       <ul class="icon">
-                        <li><a href="#"><i class="icon-hitech"></i></a></li>
+                        <li><a ><i class="icon-hitech"></i></a></li>
                       </ul>
                     </div>
                   </div>
@@ -668,7 +829,7 @@
                     <div class="portfolioImgBox"> <img src="{% static 'olora_frontend/img/portfolio/certificate-1.jpg' %}" alt="">
                       <h3 class="title">인증서</h3>
                       <ul class="icon">
-                        <li><a href="#"><i class="icon-hitech"></i></a></li>
+                        <li><a ><i class="icon-hitech"></i></a></li>
                       </ul>
                     </div>
                   </div>
@@ -676,55 +837,55 @@
                     <div class="portfolioImgBox"> <img src="{% static 'olora_frontend/img/portfolio/certificate-2.jpg' %}" alt="">
                       <h3 class="title">인증서</h3>
                       <ul class="icon">
-                        <li><a href="#"><i class="icon-hitech"></i></a></li>
+                        <li><a ><i class="icon-hitech"></i></a></li>
                       </ul>
                     </div>
                   </div>
                   <div class="Portfolio">
-                    <div class="portfolioImgBox"> <img src="{% static 'olora_frontend/img/portfolio/patent-1.jpg' %}" alt="">
+                    <div class="portfolioImgBox"> <img src="{% static 'olora_frontend/img/portfolio/mobile/patent-1.jpg' %}" alt="">
                       <h3 class="title">특허</h3>
                       <ul class="icon">
-                        <li><a href="#"><i class="icon-hitech"></i></a></li>
+                        <li><a ><i class="icon-hitech"></i></a></li>
                       </ul>
                     </div>
                   </div>
                   <div class="Portfolio">
-                    <div class="portfolioImgBox"> <img src="{% static 'olora_frontend/img/portfolio/patent-2.jpg' %}" alt="">
+                    <div class="portfolioImgBox"> <img src="{% static 'olora_frontend/img/portfolio/mobile/patent-2.jpg' %}" alt="">
                       <h3 class="title">특허</h3>
                       <ul class="icon">
-                        <li><a href="#"><i class="icon-hitech"></i></a></li>
+                        <li><a ><i class="icon-hitech"></i></a></li>
                       </ul>
                     </div>
                   </div>
                   <div class="Portfolio">
-                    <div class="portfolioImgBox"> <img src="{% static 'olora_frontend/img/portfolio/patent-3.jpg' %}" alt="">
+                    <div class="portfolioImgBox"> <img src="{% static 'olora_frontend/img/portfolio/mobile/patent-3.jpg' %}" alt="">
                       <h3 class="title">특허</h3>
                       <ul class="icon">
-                        <li><a href="#"><i class="icon-hitech"></i></a></li>
+                        <li><a ><i class="icon-hitech"></i></a></li>
                       </ul>
                     </div>
                   </div>
                   <div class="Portfolio">
-                    <div class="portfolioImgBox"> <img src="{% static 'olora_frontend/img/portfolio/patent-4.jpg' %}" alt="">
+                    <div class="portfolioImgBox"> <img src="{% static 'olora_frontend/img/portfolio/mobile/patent-4.jpg' %}" alt="">
                       <h3 class="title">특허</h3>
                       <ul class="icon">
-                        <li><a href="#"><i class="icon-hitech"></i></a></li>
+                        <li><a ><i class="icon-hitech"></i></a></li>
                       </ul>
                     </div>
                   </div>
                   <div class="Portfolio">
-                    <div class="portfolioImgBox"> <img src="{% static 'olora_frontend/img/portfolio/patent-5.jpg' %}" alt="">
+                    <div class="portfolioImgBox"> <img src="{% static 'olora_frontend/img/portfolio/mobile/patent-5.jpg' %}" alt="">
                       <h3 class="title">특허</h3>
                       <ul class="icon">
-                        <li><a href="#"><i class="icon-hitech"></i></a></li>
+                        <li><a ><i class="icon-hitech"></i></a></li>
                       </ul>
                     </div>
                   </div>
                   <div class="Portfolio">
-                    <div class="portfolioImgBox"> <img src="{% static 'olora_frontend/img/portfolio/patent-6.jpg' %}" alt="">
+                    <div class="portfolioImgBox"> <img src="{% static 'olora_frontend/img/portfolio/mobile/patent-6.jpg' %}" alt="">
                       <h3 class="title">특허</h3>
                       <ul class="icon">
-                        <li><a href="#"><i class="icon-hitech"></i></a></li>
+                        <li><a ><i class="icon-hitech"></i></a></li>
                       </ul>
                     </div>
                   </div>
@@ -736,7 +897,7 @@
                     <div class="portfolioImgBox"> <img src="{% static 'olora_frontend/img/portfolio/award1.jpg' %}" alt="">
                       <h3 class="title">Award</h3>
                       <ul class="icon">
-                        <li><a href="#"><i class="icon-hitech"></i></a></li>
+                        <li><a ><i class="icon-hitech"></i></a></li>
                       </ul>
                     </div>
                   </div>
@@ -746,17 +907,17 @@
                 <div class="d-flex flex-wrap justify-content-center">
                   <div class="Portfolio">
                     <div class="portfolioImgBox"> <img src="{% static 'olora_frontend/img/portfolio/certificate-1.jpg' %}" alt="">
-                      <h3 class="title">Certificate</h3>
+                      <h3 class="title">Certificates</h3>
                       <ul class="icon">
-                        <li><a href="#"><i class="icon-hitech"></i></a></li>
+                        <li><a ><i class="icon-hitech"></i></a></li>
                       </ul>
                     </div>
                   </div>
                   <div class="Portfolio">
                     <div class="portfolioImgBox"> <img src="{% static 'olora_frontend/img/portfolio/certificate-2.jpg' %}" alt="">
-                      <h3 class="title">Certificate</h3>
+                      <h3 class="title">Certificates</h3>
                       <ul class="icon">
-                        <li><a href="#"><i class="icon-hitech"></i></a></li>
+                        <li><a ><i class="icon-hitech"></i></a></li>
                       </ul>
                     </div>
                   </div>
@@ -765,50 +926,50 @@
               <div class="tab-pane fade" id="Patents" role="tabpanel" aria-labelledby="Patents-tab">
                 <div class="d-flex flex-wrap justify-content-center">
                   <div class="Portfolio">
-                    <div class="portfolioImgBox"> <img src="{% static 'olora_frontend/img/portfolio/patent-1.jpg' %}" alt="">
-                      <h3 class="title">Patent</h3>
+                    <div class="portfolioImgBox"> <img src="{% static 'olora_frontend/img/portfolio/mobile/patent-1.jpg' %}" alt="">
+                      <h3 class="title">Patents</h3>
                       <ul class="icon">
-                        <li><a href="#"><i class="icon-hitech"></i></a></li>
+                        <li><a ><i class="icon-hitech"></i></a></li>
                       </ul>
                     </div>
                   </div>
                   <div class="Portfolio">
-                    <div class="portfolioImgBox"> <img src="{% static 'olora_frontend/img/portfolio/patent-2.jpg' %}" alt="">
-                      <h3 class="title">Patent</h3>
+                    <div class="portfolioImgBox"> <img src="{% static 'olora_frontend/img/portfolio/mobile/patent-2.jpg' %}" alt="">
+                      <h3 class="title">Patents</h3>
                       <ul class="icon">
-                        <li><a href="#"><i class="icon-hitech"></i></a></li>
+                        <li><a ><i class="icon-hitech"></i></a></li>
                       </ul>
                     </div>
                   </div>
                   <div class="Portfolio">
-                    <div class="portfolioImgBox"> <img src="{% static 'olora_frontend/img/portfolio/patent-3.jpg' %}" alt="">
-                      <h3 class="title">Patent</h3>
+                    <div class="portfolioImgBox"> <img src="{% static 'olora_frontend/img/portfolio/mobile/patent-3.jpg' %}" alt="">
+                      <h3 class="title">Patents</h3>
                       <ul class="icon">
-                        <li><a href="#"><i class="icon-hitech"></i></a></li>
+                        <li><a ><i class="icon-hitech"></i></a></li>
                       </ul>
                     </div>
                   </div>
                   <div class="Portfolio">
-                    <div class="portfolioImgBox"> <img src="{% static 'olora_frontend/img/portfolio/patent-4.jpg' %}" alt="">
-                      <h3 class="title">Patent</h3>
+                    <div class="portfolioImgBox"> <img src="{% static 'olora_frontend/img/portfolio/mobile/patent-4.jpg' %}" alt="">
+                      <h3 class="title">Patents</h3>
                       <ul class="icon">
-                        <li><a href="#"><i class="icon-hitech"></i></a></li>
+                        <li><a ><i class="icon-hitech"></i></a></li>
                       </ul>
                     </div>
                   </div>
                   <div class="Portfolio">
-                    <div class="portfolioImgBox"> <img src="{% static 'olora_frontend/img/portfolio/patent-5.jpg' %}" alt="">
-                      <h3 class="title">Patent</h3>
+                    <div class="portfolioImgBox"> <img src="{% static 'olora_frontend/img/portfolio/mobile/patent-5.jpg' %}" alt="">
+                      <h3 class="title">Patents</h3>
                       <ul class="icon">
-                        <li><a href="#"><i class="icon-hitech"></i></a></li>
+                        <li><a ><i class="icon-hitech"></i></a></li>
                       </ul>
                     </div>
                   </div>
                   <div class="Portfolio">
-                    <div class="portfolioImgBox"> <img src="{% static 'olora_frontend/img/portfolio/patent-6.jpg' %}" alt="">
-                      <h3 class="title">Patent</h3>
+                    <div class="portfolioImgBox"> <img src="{% static 'olora_frontend/img/portfolio/mobile/patent-6.jpg' %}" alt="">
+                      <h3 class="title">Patents</h3>
                       <ul class="icon">
-                        <li><a href="#"><i class="icon-hitech"></i></a></li>
+                        <li><a ><i class="icon-hitech"></i></a></li>
                       </ul>
                     </div>
                   </div>
@@ -833,7 +994,8 @@
             <div class="imgHolder"> <img src="{% static 'olora_frontend/img/services/service-provider.svg' %}" width="50"> </div>
             <h4 class="mb-20 text-center">토탈 SI 개발</h4>
             <p> 하이테크는 고퀄리티 제품 생산을 위해 직접생산 방식을 지향하고 있으며, 최상의 제품을 위하여 품질관리에도 힘쓰고 있습니다. 이분야 엔지니어는 연구소 인력과 하나되어 왔고, 더 나은 품질관리 서비스를 위해 다향한 방식의 UI를 제공, 보다 편리한 서비스 품질을 위해 노력하고있습니다.
-              "Make connections"</p>
+              </p>
+              <i class="emphasize">"Make connections"</i>
           </div>
         </div>
         <div class="col-md-6">
@@ -841,7 +1003,9 @@
             <div class="imgHolder"> <img src="{% static 'olora_frontend/img/services/onsite-engineering.svg' %}" width="50"> </div>
             <h4 class="mb-20 text-center">현장 중심의 엔지니어링</h4>
             <p>하이테크의 수상실적, 인증 및 특허원은 다년간 노력의 결실이며, 탄탄한 엔지니어링 기술을 바탕으로 문화유산, 건축물, 교량/터널에 시공 실적으로 이어진 쾌거였습니다. 귀하의 필요가 무엇이던지 간에 하이테크는 이를 만족시킬 충분한 준비가 되어 있습니다.
-              "Be there"</p>
+              </p>
+             <i class="emphasize">"Be there"</i>
+
           </div>
         </div>
         <div class="col-md-6">
@@ -849,7 +1013,9 @@
             <div class="imgHolder"> <img src="{% static 'olora_frontend/img/services/manufacturing.svg' %}" width="50"> </div>
             <h4 class="mb-20 text-center">제조 및 생산</h4>
             <p>종이위의 디자인에서 생산시설의 손을 거치는 모든 과정에서 개발자와 엔지니어는 중추 신경으로 하이테크 발전에 디딤돌입니다.
-              "QA comes second to none, a 5-star promise"</p>
+              </p>
+              <i class="emphasize">"QA comes second to none, a 5-star promise"</i>
+
           </div>
         </div>
         <div class="col-md-6">
@@ -857,15 +1023,71 @@
             <div class="imgHolder"> <img src="{% static 'olora_frontend/img/services/product-design.svg' %}" width="50"> </div>
             <h4 class="mb-20 text-center">제품 설계에서 배포 서비스 구현</h4>
             <p>개발의 열정을 담아낸 하이테크 대표 제품으로 로라센서는 무선통신망을 이용하며, 초전력, 17킬로 송신거리를 자랑합니다. 오픈소스 기반으로 혁신 기술을 담아 내는 차세대 요람의 정신을 이어 갈 것입니다.
-              "Be on the edge"</p>
+              </p>
+            <i class="emphasize">"Be on the edge"</i>
+
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- Start Solution Area -->
-<!-- End Solutisectionon Area-->
+  <!-- Start Solution Area -->
+  <section class="section-top-border section_bg" id="aht">
+    <div class="container">
+      <h3 class="heading" id="heading4">At High Tech,</h3>
+      <div class="row">
+        <div class="col-lg-6">
+          <p>
+            we create more than just monitoring app or deep learning
+            scientific platforms. We bring it to life with user experience,
+            translating data values into real, tangible and graphical
+            visualization.<br />
+            We provide you in a wide range of sectors with a professional, yet
+            refreshingly personal approach. Join us, and thrive on your
+            ventures.
+          </p>
+          <p>
+            HIGH TECH is a company dedicated to Internet of things (IoT). We
+            provide services based on LoRa, BLE, and IoT sensors, and our
+            products include O-lamps as well as Home wireless local network
+            products and services.
+          </p>
+        </div>
+        <div class="col-lg-6">
+          <video width="100%" height="270" controls>
+            <source
+              src="{% static 'video/master_web.mp4' %}"
+              type="video/mp4"
+            />
+            Your browser does not support HTML5 video.
+          </video>
+        </div>
+        <div class="col-12">
+          <p>
+            We've been expanding heavily by investing in our development to
+            reinvent ourselves as the beacon of innovation and invention. We
+            launched outdoor lamps, a product named ‘O-lamp’ in  2016. The
+            lamp  has been popular among outdoor-loving fans.
+          </p>
+          <p>
+            On top of the popularity, we finally found our niche market in the
+            area of cultural heritage preservation by launching our proud
+            flagship of Monitoring System first in our province and by
+            expanding its market across the country. With all the discipline
+            under one roof, we are prepared to meet the challenges of IoT
+            devices from concept, through certification and into mass
+            production and installation.
+          </p>
+          <p>
+            If your imagination for the future of IoT technology is the same
+            as of us, please join us and we can go far together.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Solutisectionon Area-->
 <section class="section-top-border" id="deeplearning">
   <div class="whole-wrap">
     <div class="container box_1170">
@@ -884,10 +1106,16 @@
         <div class="row">
           <div class="col-lg-6"><br>
             <br>
-            <div class="deep-img-hover" style="top: 8%;">&nbsp;</div>
-            <div class="deep-img-hover" style="top: 38%;">&nbsp;</div>
-            <div class="deep-img-hover" style="top: 68%;">&nbsp;</div>
-            <img src="{% static 'olora_frontend/img/deep-img.png' %}" class="heading">
+                <div class="deep-img-hover d-lg-block d-none" style="top: 8%;">
+                  &nbsp;
+                </div>
+                <div class="deep-img-hover d-lg-block d-none" style="top: 38%;">
+                  &nbsp;
+                </div>
+                <div class="deep-img-hover d-lg-block d-none" style="top: 68%;">
+                  &nbsp;
+                </div>
+            <img src="{% static 'olora_frontend/img/mobile/deep-img.jpg' %}" class="heading">
           </div>
           <div class="col-lg-1"></div>
           <div class="col-lg-5">
@@ -995,7 +1223,11 @@
     <div class="sample-text-area">
       <div class="container box_1170">
         <div class="row">
-          <div class="col-lg-6"> <img src="{% static 'olora_frontend/img/deep/2.png' %}" class="heading"> </div>
+          <div class="col-lg-6"> <img 
+          srcset="{% static 'olora_frontend/img/deep/mobile/2.jpg' %} 576w,
+          {% static 'olora_frontend/img/deep/mobile/2.jpg' %}"
+          src="{% static 'olora_frontend/img/deep/mobile/2.jpg' %}"
+          class="heading"> </div>
           <div class="col-lg-1"></div>
           <div class="col-lg-5">
             <ul class="unordered-list">
@@ -1012,7 +1244,7 @@
       </div>
       <div class="container box_1170">
         <div class="row">
-          <div class="col-lg-6"> <img src="{% static 'olora_frontend/img/deep/21.png' %}" class="heading"> </div>
+          <div class="col-lg-6"> <img src="{% static 'olora_frontend/img/deep/mobile/21.jpg' %}" class="heading"> </div>
           <div class="col-lg-1"></div>
           <div class="col-lg-5">
             <ul class="unordered-list">
@@ -1063,7 +1295,7 @@
         </div>
         <div class="col-sm-2"></div>
         <div class="col-lg-8" id="ani15">
-            <form class="form-contact contact_form" method="post" id="contactForm" novalidate>
+            <form  class="form-contact contact_form" method="post" id="contactForm" novalidate>
                 {% csrf_token%}
                 <div class="row">
                 <div class="col-12">
@@ -1092,7 +1324,7 @@
                     </div>
                 </div>
                 </div>
-                <div class="form-group mt-3"> <button type="submit" class="btn_1 button-contactForm" id="formsubmit">Submit <span><img src="{% static 'olora_frontend/img/icon/left.svg' %}" alt=""></span> </button> </div>
+                <div class="form-group mt-3"> <button type="submit" class="btn_1 button-contactForm" id="formsubmit">Submit <span><img src="{% static 'olora_frontend/' %}img/icon/left.svg" alt=""></span> </button> </div>
             </form>
             <div id="lock-modal"></div>
             <div id="loading-circle"></div>
@@ -1156,12 +1388,14 @@
 <footer class="footer-area">
   <div class="container">
     <div class="desktopLink text-center row">
-      <div class="col-lg-12">For a pc version, <a href="#">click here</a></div>
+      <div class="col-lg-12">
+       <br />
+            <a href="#top">Tap here for the pc version</a>
     </div>
     <div class="row justify-content-between">
       <div class="col-lg-12 text-right">
         <div class="single-footer-widget footer_3 borderBottom">
-          <div class="social_icon"> <a href="#">News</a> <a href="#">Careers</a> <a href="#contact">Contact</a> <a href="#"><i class="fa fa-globe" aria-hidden="true"></i></a> </div>
+          <div class="social_icon"> <a >News</a> <a >Careers</a> <a href="#contact">Contact</a> <a ><i class="fa fa-globe" aria-hidden="true"></i></a> </div>
         </div>
       </div>
     </div>
@@ -1178,6 +1412,9 @@
             <li><a href="{% url 'blog:detailmodal' slug='company' %}" class="ajax-popup-link">Company</a></li>
             <li><a href="{% url 'blog:detailmodal' slug='ceo' %}" class="ajax-popup-link"> CEO Message</a></li>
             <li><a href="{% url 'blog:detailmodal' slug='family' %}" class="ajax-popup-link">Family Members</a></li>
+            <li><a href="{% url 'blog:detailmodal' slug='ci' %}" class="ajax-popup-link">Download CI</a></li>
+            <li><a href="{% url 'blog:detailmodal' slug='brochure' %}" class="ajax-popup-link">Download Brochure</a></li>
+
           </ul>
         </div>
       </div>
@@ -1201,11 +1438,11 @@
         </div>
         <div class="single-footer-widget footer_2">
           <ul>
-            <li><a href="#solution">Solutions</a></li>
-            <li><a href="#deeplearning">Deep Learning</a></li>
-            <li><a href="#iot"> IOT Monitoring</a></li>
-            <li><a href="#termite">Detection</a></li>
-            <li><a href="#sensors">Sensors</a></li>
+            <li><a href="{% url 'blog:detailmodal' slug='solutions' %}" class="ajax-popup-link">Solutions</a></li>
+            <li><a href="{% url 'blog:detailmodal' slug='deeplearning' %}" class="ajax-popup-link">Deep Learning</a></li>
+            <li><a href="{% url 'blog:detailmodal' slug='iot' %}" class="ajax-popup-link"> IOT Monitoring</a></li>
+            <li><a href="{% url 'blog:detailmodal' slug='termite' %}" class="ajax-popup-link">Detection</a></li>
+            <li><a href="{% url 'blog:detailmodal' slug='sensor' %}" class="ajax-popup-link">Sensors</a></li>
           </ul>
         </div>
       </div>
@@ -1217,19 +1454,8 @@
           <ul>
             <li><a href="{% url 'blog:index'%}">Blog</a></li>
             <li><a href="{% url 'blog:detailmodal' slug='media' %}" class="ajax-popup-link">Media</a></li>
-            <li><a href="#contact">Contact Us</a></li>
+            <li><a class="quick-link" href="#contact">Contact Us</a></li>
             <li><a href="{% url 'blog:detailmodal' slug='location' %}" class="ajax-popup-link">Locations</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-4 col-6">
-        <div class="single-footer-widget footer_2">
-          <h4>Downloads</h4>
-        </div>
-        <div class="single-footer-widget footer_3">
-          <ul>
-            <li><a href="{% url 'blog:detailmodal' slug='ci' %}" class="ajax-popup-link">CI</a></li>
-            <li><a href="{% url 'blog:detailmodal' slug='brochure' %}" class="ajax-popup-link">Brochure</a></li>
           </ul>
         </div>
       </div>
@@ -1239,7 +1465,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <p class="footer-text m-0"> Copyrigh 2020. <a href="#">HIGHTECH</a>. All rights reserved. </p>
+          <p class="footer-text m-0"> Copyright 2020. <a >HIGHTECH</a>. All rights reserved. </p>
         </div>
       </div>
     </div>
@@ -1275,122 +1501,16 @@
 <script src="{% static 'olora_frontend/js/mail-script.js' %}"></script>
 <script src="{% static 'olora_frontend/js/contact.js' %}"></script>
 <!-- custom js -->
-<script src="{% static 'olora_frontend/js/custom.js' %}"></script>
 <script src="{% static 'olora_frontend/js/animate.js' %}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script src="{% static 'olora_frontend/js/custom.js' %}"></script>
 <script>
     $('.ajax-popup-link').magnificPopup({
         type: 'ajax',
+        closeOnContentClick: false,
         alignTop: true,
         overflowY: 'scroll', // as we know that popup content is tall we set scroll overflow by default to avoid jump
     });
-   wow = new WOW(
-      {
-        animateClass: 'animated',
-        offset:       100,
-        callback:     function(box) {
-          console.log("WOW: animating <" + box.tagName.toLowerCase() + ">")
-        }
-      }
-    );
-    wow.init();
-    document.getElementById('moar').onclick = function() {
-      var section = document.createElement('section');
-      section.className = 'section--purple wow fadeInDown';
-      this.parentNode.insertBefore(section, this);
-    };
-	
-	
-	
-	</script>
-<script> if ($(".portfolioAccordion").length) {
-          
-         $('.portfolioimgBlock').click(function () {
-		 $('.portfolioimgBlock').removeClass('active');
-         $(this).toggleClass('active');
-		 
-		
-		
-        });
-    };
-	</script>
-<!-- JS For Slider END-->
-<!--<script>
-    $(function() {
-      // Smooth Scrolling
-      $('.canven-menu-iner a[href*="#"]:not([href="#"])').click(function() {
-        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-          var target = $(this.hash);
-          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-          if (target.length) {
-            $('html, body').animate({
-              scrollTop: target.offset().top(600)
-            }, 1000);
-            return false;
-          }
-        }
-      });
-    });
-	
-	
-    </script>-->
-	<script type="text/javascript">
-	
-	
-  var sections = $('section')
-  , nav = $('nav');
-
-$(window).on('scroll', function () {
-  var cur_pos = $(this).scrollTop();
-  
-  sections.each(function() {
-    var top = $(this).offset().top - 200,
-        bottom = top + $(this).outerHeight();
-    
-    if (cur_pos >= top && cur_pos <= bottom) {
-      nav.find('a').removeClass('active');
-      sections.removeClass('active');
-      
-      $(this).addClass('active');
-      nav.find('a[href="#'+$(this).attr('id')+'"]').addClass('active');
-    }
-  });
-});
-
-nav.find('a').on('click', function () {
-  var $el = $(this)
-    , id = $el.attr('href');
-  
-  $('html, body').animate({
-    scrollTop: $(id).offset().top
-  }, 500);
-  
-  return false;
-});
-
-
-
-$('#indexSlider a.btn_1').click(function() {
-  if (window.innerWidth <= 768) {
-    $('section')
-    .css('display','none').css('opacity','0');
-  $($(this).attr('href'))
-    .css('display','block')
-    .css('opacity','1')
-    .css('transform','none')
-    .find('*').each(function () {$(this).removeAttr('style')});
-  }
-});
-
-$('.desktopLink a').click(function() {
-  if (window.innerWidth <= 768) {
-  $('section')
-    .css('display','block').css('opacity','1')
-    .css('transform','none')
-    .find('*').each(function () {$(this).removeAttr('style')});
-  }
-});
-
 </script>
 </body>
 </html>

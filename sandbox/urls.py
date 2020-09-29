@@ -43,13 +43,12 @@ sitemaps = {
 admin.autodiscover()
 
 urlpatterns = [
-    # url(r'^', include(olora_urls, namespace='olora')),
+    url(r'^', include(olora_urls, namespace='olora')),
     url(r'^api/deployment/$', AutomateDeployment, name='automatic_deployment'),
     url('^api/contact_us$', contact_us, name='contact_us'),
     # Include admin as convenience. It's unsupported and only included
     # for developers.
     url(r'^admin/', admin.site.urls),
-
     # i18n URLS need to live outside of i18n_patterns scope of Oscar
     url(r'^i18n/', include(django.conf.urls.i18n)),
 
@@ -69,12 +68,12 @@ urlpatterns = [
     url(r'^blog/robots\.txt$', TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),
     url(r'^blog/sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     url(r'^blog/feed/$', AllArticleRssFeed(), name='rss'),  # rss订阅
-
+    url(r'mdeditor/', include('mdeditor.urls'))
 ]
 
 # Prefix Oscar URLs with language codes
 urlpatterns += i18n_patterns(
-    url(r'^', include(olora_urls, namespace='olora')),
+    #url(r'^', include(olora_urls, namespace='olora')),
     # Custom functionality to allow dashboard users to be created
     url(r'gateway/', include(gateway_urls)),
     # Oscar's normal URLs

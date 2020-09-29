@@ -1,7 +1,8 @@
 from django.db import models
 from django.conf import settings
 from django.shortcuts import reverse
-from ckeditor_uploader.fields import RichTextUploadingField
+#from ckeditor_uploader.fields import RichTextUploadingField
+from mdeditor.fields import MDTextField
 import markdown
 import emoji
 import re
@@ -75,7 +76,7 @@ class Article(models.Model):
     summary = models.TextField('Article summary', max_length=230,
                                default='Article summary is equivalent to the description content of the webpage, '
                                        'please fill in ...')
-    body = RichTextUploadingField(verbose_name='BlogContent',null=True,blank=True)
+    body = MDTextField(verbose_name='BlogContent',null=True,blank=True)
     img_link = models.CharField('Image address', default=IMG_LINK, max_length=255)
     create_date = models.DateTimeField(verbose_name='Creation time', auto_now_add=True)
     update_date = models.DateTimeField(verbose_name='Modified time', auto_now=True)

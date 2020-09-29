@@ -7,11 +7,13 @@ import pymysql
 from django.contrib.messages import constants as messages
 from django.utils.translation import ugettext_lazy as _
 from dotenv import load_dotenv
+from django.core.management.base import BaseCommand
+from django.core.cache import cache
 
 load_dotenv()
 
-pymysql.version_info = (1, 3, 13, "final", 0)
-pymysql.install_as_MySQLdb()
+#pymysql.version_info = (1, 3, 13, "final", 0)
+#pymysql.install_as_MySQLdb()
 env = environ.Env()
 
 # Path helper
@@ -20,7 +22,16 @@ location = lambda x: os.path.join(
 
 DEBUG = env.bool('DEBUG', default=True)
 
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['localhost', '127.0.0.1'])
+#Building Cache command
+class Command(BaseCommand):
+    def handle(self, *args, **kwargs):
+        cache.clear()
+        self.stdout.write('Cleared cache\n')
+
+
+#ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['127.0.0.1', 'localhost', '159.65.8.38', 'o-lora.com', '*'])
+
+ALLOWED_HOSTS = ['*']
 
 EMAIL_SUBJECT_PREFIX = '[Oscar sandbox] '
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -59,7 +70,7 @@ TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'kn'
 
 # Includes all languages that have >50% coverage in Transifex
 # Taken from Django's default setting for LANGUAGES
@@ -164,6 +175,7 @@ MIDDLEWARE = [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
 
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -347,7 +359,9 @@ INSTALLED_APPS = [
 
     'django_hosts',
     'ckeditor',
-    'ckeditor_uploader'
+    'ckeditor_uploader',
+    'corsheaders',
+    'mdeditor'
 ]
 
 # Add Oscar's custom auth backend so users can sign in using their email
@@ -486,7 +500,7 @@ except ImportError:
 
 # Freedom to choose the functions you need to turn on
 # Whether to start the [Online Tools] application
-TOOL_FLAG = True
+TOOL_FLAG = False
 # Whether to enable the [API] application
 API_FLAG = False
 
@@ -601,4 +615,44 @@ CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'Advanced'
     },
+}
+
+CORS_ORIGIN_WHITELIST = [
+    "http://www.lightup.co.kr",
+    "http://lightup.co.kr"
+]
+
+# mdeditor
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+MDEDITOR_CONFIGS = {
+    'default':{
+            'width': '90% ',  # Custom edit box width
+            'heigth': 500,  # Custom edit box height
+            'toolbar': ["undo", "redo", "|",
+                                           "bold", "del", "italic", "quote", "ucwords", "uppercase", "lowercase", "|",
+                                           "h1", "h2", "h3", "h5", "h6", "|",
+                                           "list-ul", "list-ol", "hr", "|",
+                                           "link", "reference-link", "image", "code", "preformatted-text", "code-block", "table", "datetime"
+                                           "emoji", "html-entities", "pagebreak", "goto-line", "|",
+                                           "help", "info",
+                                           "||", "preview", "watch", "fullscreen"],  # custom edit box toolbar 
+            'upload_image_formats': ["jpg", "jpeg", "gif", "png", "bmp", "webp"],  # image upload format type
+            'image_folder': 'editor',  # image save the folder name
+            'theme': 'default',  # edit box theme, dark / default
+            'preview_theme': 'default',  # Preview area theme, dark / default
+            'editor_theme': 'default',  # edit area theme, pastel-on-dark / default
+            'toolbar_autofixed': True,  # Whether the toolbar capitals
+            'search_replace': True,  # Whether to open the search for replacement
+            'emoji': True,  # whether to open the expression function
+            'tex': True,  # whether to open the tex chart function
+            'flow_chart': True,  # whether to open the flow chart function
+            'sequence': True, # Whether to open the sequence diagram function
+            'watch': True,  # Live preview
+            'lineWrapping': False,  # lineWrapping
+            'lineNumbers': False,  # lineNumbers
+            'language': 'en',
+            'task_list': True
+        }
+    
 }

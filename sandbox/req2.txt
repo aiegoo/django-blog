@@ -1,0 +1,2 @@
+
+-e git+git@github.com:pawanpaudel93/olora.git@96e1ff6b7a1c191bd5996905a6c2b761308be232#egg=django_oscar

@@ -18,10 +18,17 @@ from .forms import ContactForm
 
 
 def Home(request):
-    if request.get_full_path() == "/kn/":
-        return render(request, 'olora_frontend/index.kn.html')
-    else:
-        return render(request, 'olora_frontend/index.html')
+  if request.get_full_path() == "/en/" or 'www' in request.get_host():
+    return redirect('olora_frontend:homeen')
+  else:
+    return redirect('olora_frontend:homekn')
+
+def home_en(request):
+  return render(request, 'olora_frontend/index.html')
+
+
+def home_kn(request):
+  return render(request, 'olora_frontend/index.kn.html')
 
 
 @require_POST

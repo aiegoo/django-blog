@@ -23,45 +23,12 @@ body {
     font-weight: 400;
     position: relative;
 }
-
-/* #scrollTracker {
-  display: block;
-  float: right;
-  z-index: 999;
-  position: sticky;
-  top: 100px;
-  right: 20px;
-  margin-top: 50px;
-  padding: 16px;
-  border-radius: 0.25rem;
-  font-size: 0.875rem;
-  opacity: 0.85;
+html {
+  scroll-behavior: smooth;
 }
 
-#scrollTracker .nav-link {
-  color: #333;
-}
 
-#scrollTracker .nav-link.active {
-  color: #fff;
-  background-color: #0d1061;
-} */
-
-/* @media (max-width: 1500px) {
-  #scrollTracker {
-    font-size: 0.75rem;
-  }
-}
-
-@media (max-width: 1300px) {
-  #scrollTracker {
-    display: none;
-    transition: display 0.5s linear;
-  }
-} */
-
-
-
+/* Scroll tracker css */
 #scrollTracker {
   width: 150px;
   display: block;
@@ -73,36 +40,13 @@ body {
   margin-top: 50px;
   color: #333;
 }
-
-@media (max-width: 1500px) {
-  #scrollTracker {
-    width: 130px;
-    margin-right: -25px;
-    opacity: 0.8;
-    transition: all 0.5s ease-out;
-  }
-  .lesson-details {
-    white-space: nowrap;
-    transform: rotate(-35deg) translateY(-25px);
-  }
-}
-
-@media (max-width: 1300px) {
-  #scrollTracker {
-    display: none;
-    transition: all 0.5s ease-out;
-  }
-}
-
 #scrollTracker a {
   color: #333;
 }
-
 .progress-items {
   width: 100%;
   position: relative;
 }
-
 .progress-item {
   position: relative;
   width: 100%;
@@ -147,7 +91,6 @@ body {
 .progress-item:hover .lesson-details {
   color: #777;
 }
-
 .lesson-number {
   color: #333;
   width: 40px;
@@ -164,14 +107,12 @@ body {
   letter-spacing: 0px;
   line-height: 1.8rem;
 }
-
 .lesson-icon {
   /* width: 15%; */
   width: 100px;
   float: left;
   padding: 2rem 0rem 2rem 2rem;
 }
-
 .lesson-details{
   vertical-align: middle;
   width: 85%;
@@ -182,7 +123,6 @@ body {
   -webkit-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
 }
-
 .progress-tracker {
   border-left: 5px solid #0d1061;
   position: absolute;
@@ -190,12 +130,34 @@ body {
   top: 0;
   height: 100%;
 }
-
 .lesson-icon {
   padding-left: 2rem;
 }
 
+/* Scroll tracker laptops */
+@media (max-width: 1500px) {
+  #scrollTracker {
+    width: 130px;
+    margin-right: -25px;
+    opacity: 0.8;
+    transition: all 0.5s ease-out;
+  }
+  .lesson-details {
+    white-space: nowrap;
+    transform: rotate(-35deg) translateY(-25px);
+  }
+}
 
+/* Scroll tracker hide on mobile */
+@media (max-width: 1300px) {
+  #scrollTracker {
+    display: none;
+    transition: all 0.5s ease-out;
+  }
+}
+
+
+/* Language selector */
 .language-selector {
   margin-top: 6px;
   font-size: 1.5rem;
@@ -203,20 +165,17 @@ body {
   margin-left: auto;
   margin-right: 20px;
 }
-
 .language-selector a {
   margin: 0 15px;
   color: #888;
 }
-
 .language-selector a:hover {
   color: #fff;
 }
-
 .language-selector a.active {
   color: #fff;
 }
-
+/* Language selector mobile */
 @media (max-width: 768px) {
   .language-selector {
     margin-top: 3px;
@@ -225,15 +184,18 @@ body {
   }
 }
 
+
 @media (max-width: 768px) {
- #aht {
-   display: none;
- }
- .footer-area {
-   padding-top: 75px !important;
- }
+  /* Remove at high tech on mobile */
+  #aht {
+    display: none;
+  }
+  .footer-area {
+    padding-top: 75px !important;
+  }
 }
 
+/* Image hover effects */
 @media (min-width: 1200px) {
   .deep-img-hover {
     position: absolute;
@@ -248,6 +210,8 @@ body {
     transition: all 250ms ease-in-out;
   }
 }
+
+
 
 /* line 9, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_common.scss */
 .message_submit_form:focus {
@@ -2752,7 +2716,7 @@ ul {
 .banner_part {
   height: 890px;
   position: relative;
-  background-image: url(/static/olora_frontend/img/banner-01.jpg);
+  background-image: url(file:///D|/alpa-freelac/option1/img/banner-01.jpg);
   background-repeat: no-repeat;
   background-size: 100% auto;
   background-position: center;
@@ -3193,15 +3157,16 @@ ul {
   vertical-align: middle;
   width: 85%;
   position: relative;
-  top: -175px;
+  top: -100px;
   margin-bottom: -150px;
 }
 
-@media (max-width: 1300px) {
+@media (min-width: 990px) and (max-width: 1300px){
   /* line 63, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_about.scss */
   .about_part .about_img img {
     width: 100%;
-    position: static;
+    position: relative;
+    top: 25px;
   }
 }
 
@@ -3210,7 +3175,7 @@ ul {
   .about_part .about_img img {
     width: 100%;
     position: relative;
-    top: -100px;
+    top: -25px;
   }
 }
 
@@ -3219,7 +3184,7 @@ ul {
   .about_part .about_img img {
     width: 100%;
     position: relative;
-    top: -125px;
+    top: -50px;
   }
 }
 
@@ -3228,7 +3193,7 @@ ul {
   .about_part .about_img img {
     width: 100%;
     position: relative;
-    top: -175px;
+    top: -75px;
   }
 }
 
@@ -3237,35 +3202,14 @@ ul {
   .about_part .about_img img {
     width: 100%;
     position: relative;
-    top: -200px;
-  }
-}
-
-@media (max-width: 575px) {
-  /* line 63, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_about.scss */
-  .about_part .about_img img {
-    position: static;
-  }
-}
-
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-  /* line 63, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_about.scss */
-  .about_part .about_img img {
-    position: static;
-  }
-}
-
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  /* line 63, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_about.scss */
-  .about_part .about_img img {
-    position: static;
+    top: -100px;
   }
 }
 
 /* line 1, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_service_part.scss */
 .service_part {
   padding: 445px 0px 130px;
-  background-image: url(/static/olora_frontend/img/services_bg.png);
+  background-image: url(file:///D|/alpa-freelac/option1/img/services_bg.png);
   background-position: center left;
   background-size: contain;
   background-repeat: no-repeat;
@@ -3423,7 +3367,7 @@ ul {
 /************** project part starrt**************/
 /* line 2, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_project_part.scss */
 .project_part {
-  background-image: url(/static/olora_frontend/img/project/project_bg.png);
+  background-image: url(file:///D|/alpa-freelac/option1/img/project/project_bg.png);
   background-position: center left;
   background-size: contain;
   background-repeat: no-repeat;
@@ -3721,7 +3665,7 @@ ul {
 .blog_part {
   position: relative;
   padding: 0 0 140px;
-  background: url(/static/olora_frontend/img/blog/blog_bg.png);
+  background: url(file:///D|/alpa-freelac/option1/img/blog/blog_bg.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: content;
@@ -5736,7 +5680,7 @@ h6 {
 
 /* line 798, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_elements.scss */
 .primary-checkbox input:checked + label {
-  background: url(/static/olora_frontend/img/elements/primary-check.png) no-repeat center center/cover;
+  background: url(file:///D|/alpa-freelac/option1/img/elements/primary-check.png) no-repeat center center/cover;
   border: none;
 }
 
@@ -5778,7 +5722,7 @@ h6 {
 
 /* line 835, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_elements.scss */
 .confirm-checkbox input:checked + label {
-  background: url(/static/olora_frontend/img/elements/success-check.png) no-repeat center center/cover;
+  background: url(file:///D|/alpa-freelac/option1/img/elements/success-check.png) no-repeat center center/cover;
   border: none;
 }
 
@@ -5826,7 +5770,7 @@ h6 {
 
 /* line 876, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_elements.scss */
 .disabled-checkbox input:checked + label {
-  background: url(/static/olora_frontend/img/elements/disabled-check.png) no-repeat center center/cover;
+  background: url(file:///D|/alpa-freelac/option1/img/elements/disabled-check.png) no-repeat center center/cover;
   border: none;
 }
 
@@ -5868,7 +5812,7 @@ h6 {
 
 /* line 913, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_elements.scss */
 .primary-radio input:checked + label {
-  background: url(/static/olora_frontend/img/elements/primary-radio.png) no-repeat center center/cover;
+  background: url(file:///D|/alpa-freelac/option1/img/elements/primary-radio.png) no-repeat center center/cover;
   border: none;
 }
 
@@ -5910,7 +5854,7 @@ h6 {
 
 /* line 950, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_elements.scss */
 .confirm-radio input:checked + label {
-  background: url(/static/olora_frontend/img/elements/success-radio.png) no-repeat center center/cover;
+  background: url(file:///D|/alpa-freelac/option1/img/elements/success-radio.png) no-repeat center center/cover;
   border: none;
 }
 
@@ -5958,7 +5902,7 @@ h6 {
 
 /* line 991, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_elements.scss */
 .disabled-radio input:checked + label {
-  background: url(/static/olora_frontend/img/elements/disabled-radio.png) no-repeat center center/cover;
+  background: url(file:///D|/alpa-freelac/option1/img/elements/disabled-radio.png) no-repeat center center/cover;
   border: none;
 }
 
@@ -6153,7 +6097,8 @@ h6 {
 @media (max-width: 991px) {
   /* line 24, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_footer.scss */
   .footer-area .single-footer-widget {
-    margin-bottom: 40px;
+    margin-top: 20px;
+    margin-bottom: 0;
   }
 }
 
@@ -6199,7 +6144,7 @@ h6 {
 
 /* line 56, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_footer.scss */
 .footer-area .single-footer-widget ul li a {
-  color: #999999;
+  color: #ccc;
   -webkit-transition: 0.5s;
   transition: 0.5s;
   font-size: 0.9375rem;
@@ -6430,7 +6375,7 @@ h6 {
 /************* breadcrumb css start *****************/
 /* line 2, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_breadcrumb.scss */
 .breadcrumb_bg {
-  background-image: url(/static/olora_frontend/img/breadcrumb.png);
+  background-image: url(file:///D|/alpa-freelac/option1/img/breadcrumb.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -6629,7 +6574,7 @@ width:100%;
 .contactWrap{padding:0; border:0; 
     margin-bottom: -8px;}
 ul.listView  {list-style-type: none;margin: 0;padding: 0;}
-.listView li {background: url(/static/images/bullet.png) no-repeat scroll 0 18px; font-size: 1rem;line-height: 26px; padding: 6px 0 0 30px;position: relative;}
+.listView li {background: url(file:///D|/alpa-freelac/option1/images/bullet.png) no-repeat scroll 0 18px; font-size: 1rem;line-height: 26px; padding: 6px 0 0 30px;position: relative;}
 .listView li:before{content: '';background: #f68b1f;height: 3px;width: 12px;position: absolute;top: 18px;left: 0;border-radius: 15px;}
 .borderBottom{border-bottom: 1px solid #0c0f63;
     padding-bottom: 15px;}
@@ -6691,7 +6636,7 @@ ul.listView  {list-style-type: none;margin: 0;padding: 0;}
 #indexSlider .text-box img{width:auto}
 .text-box a{color:#FFF; font-weight:normal}
 .width5#indexSlider 0 li{width:50%; float:left}
-.deepLearning, .sensorBanner{position:relative; z-index:2; margin-top:50px;}
+.deepLearning, .sensorBanner{position:relative; z-index:1; margin-top:50px;}
 .deepLearning:after, .sensorBanner:after{width:100%; height:100%; display:block; content:""; background:#b7daf3; position:absolute; bottom:-20px; left:20px; z-index:-1}
 .marT50{margin-top:50px}
 .sensorBanner{margin-top:10px; margin-bottom: 20px;}
@@ -6810,7 +6755,7 @@ ul.listView  {list-style-type: none;margin: 0;padding: 0;}
     content: "";
     animation: 10s linear 0s infinite running spin;
     -webkit-animation: 10s linear 0s infinite running spin;
-    background: url(/static/olora_frontend/img/services/service-circle-bg.png) no-repeat center center;
+    background: url(file:///D|/alpa-freelac/option1/img/services/service-circle-bg.png) no-repeat center center;
     width: 100px;
     height: 100px;
     z-index: -1;
